@@ -6,6 +6,7 @@ import Services from './components/Services Template/Services.jsx';
 import Products from './components/Products Template/Products.jsx';
 import Register from './components/Register Template/Register.jsx';
 import Login from './components/Login Template/Login.jsx';
+import Footer from './components/Footer Template/Footer.jsx';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path='/register' element={<Register />} />
       <Route path='/login' element={<Login />} />
     </Routes>
+    <Footer />
     </>
   );
 
