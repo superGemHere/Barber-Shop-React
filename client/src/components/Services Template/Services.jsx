@@ -23,14 +23,14 @@ export default function Services(){
                         <p>Click for more details.</p>
                     </div>
             </div>
-            <div className="serviceCard" >
+            <div className="serviceCard wax" >
                 <h2>Wax</h2>
                     <div className="cardInsights">
                         <h4>Wax</h4>
                         <p>Click for more details.</p>
                     </div>
             </div>
-            <div className="serviceCard">
+            <div className="serviceCard masks">
                 <h2>Face Masks</h2>
                     <div className="cardInsights">
                         <h4>Face Masks</h4>
