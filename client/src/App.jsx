@@ -5,6 +5,7 @@ import Home from './components/Home Template/Home.jsx';
 import Services from './components/Services Template/Services.jsx';
 import Products from './components/Products Template/Products.jsx';
 import Register from './components/Register Template/Register.jsx';
+import Login from './components/Login Template/Login.jsx';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path='/services' element={<Services />} />
       <Route path='/products' element={<Products />} />
       <Route path='/register' element={<Register />} />
+      <Route path='/login' element={<Login />} />
     </Routes>
     </>
   );
