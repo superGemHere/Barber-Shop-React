@@ -1,0 +1,89 @@
+
+
+
+.services{
+    width: 100%;
+    height: 93vh;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(12, 10, 10, 0.8)),
+      url(https://wallpapers.com/images/hd/barber-shop-background-c8pq8le29lkcb64m.jpg);
+    background-size: 100%;
+    background-position: center;
+    background-attachment: scroll;
+  }
+  
+  .servicesParentContainer{
+    width: 100%;
+    height: 93vh;
+    /* display: flex; */
+    justify-content: center;
+    text-align: center;
+    /* margin: 50px; */
+  }
+  
+  #serviceHeading{
+    height: fit-content;
+    position: relative;
+    top: 50px;
+    font-size: 60px;
+    font-weight: bolder;
+    text-shadow: 3px 3px grey;
+    /* left: 860px; */
+  }
+  
+  .servicesChildContainer{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    top: 100px;
+    /* left: -150px; */
+  }
+  
+  .serviceCard{
+    width: 350px;
+    height: 400px;
+    display: flex;
+    text-shadow: 5px 5px #131313;
+    font-family: 'Agbalumo';
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 10px rgba(255, 255, 255, 0.5);
+    border-style:double;
+    border-radius: 10px;
+  }
+  
+  .serviceCard:hover {
+    border: 10px solid #fff;
+    border-style:double;
+  
+  }
+  .serviceCard:hover > .cardInsights{
+    display: block;
+  }
+  .serviceCard:hover > h2{
+    display: none;
+  }
+  
+  .cardInsights{
+    display: none;
+  }
+
+  .beardTrimming{
+    background-image: linear-gradient(rgba(32, 32, 32, 0.5), rgba(26, 25, 25, 0.5)),
+                url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFJBdyrGPzHdTFZjMZdeReUbjdbeRdFm8CTw&usqp=CAU);
+    background-size: cover;
+    background-position: center;
+  }
+  .haircuts{
+    background-image: linear-gradient(rgba(32, 32, 32, 0.5), rgba(26, 25, 25, 0.5)),
+                url(https://c8.alamy.com/comp/2JX5D1C/barber-shaving-client-ink-black-and-white-drawing-2JX5D1C.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+  
