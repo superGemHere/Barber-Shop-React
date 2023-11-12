@@ -1,0 +1,111 @@
+.login {
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(12, 10, 10, 0.8)),
+      url(https://wallpapers.com/images/hd/barber-shop-background-c8pq8le29lkcb64m.jpg);
+    background-size: 100%;
+    background-position: center;
+    height: 93vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .login-container {
+    width: 30%;
+    border-radius: 10px;
+    background-image: linear-gradient(rgba(110, 108, 108, 0.75), rgba(107, 105, 105, 0.75)),
+      url(https://kinneygroup.com/wp-content/uploads/2019/10/fw-bg-gradient-1024x576.png);
+    background-size: 100%;
+    background-position: center;
+    /* width: 20%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .login-form {
+    color: #fff;
+    display: block;
+    margin: 20px;
+  }
+  .login-form label {
+    margin: 5px 0;
+    text-align: center;
+    font-size: 25px;
+    display: block;
+  }
+  .login-form  input {
+    margin: 5px 0;
+    text-align: center;
+    opacity: 0.5;
+    font-size: 20px;
+    display: block;
+  }
+  .submitBtn {
+    color: black;
+    margin: 20px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .submitBtn input {
+      align-items: center;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+    width: 100px;
+    color: #fff;
+    background-color: black;
+  }
+  .submitBtn input:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    width: 100px;
+    color: black;
+    background-color: #fff;
+  }
+  
+  .existingAccount {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .existingAccount a {
+    cursor: default;
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+  }
+  
+  #SignUp {
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+  
+    display: flex;
+  
+    position: relative;
+  }
+  #SignUp:hover {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    /* color: #0087ca; */
+  }
+  #SignUp::after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #33b3c4;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  #SignUp:hover:after {
+    width: 100%;
+    left: 0;
+  }
