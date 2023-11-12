@@ -1,5 +1,7 @@
 import './header.css';
 
+import {Link} from 'react-router-dom'
+
 export default function Header(){
     return (
         <header className="header">
@@ -8,15 +10,17 @@ export default function Header(){
   </a>
   <nav className="navbar">
     <div className="interaction-links">
-      <a className="navbar__item" href="./home.html">
+      <Link className='navbar__item'  to='/'>Home</Link>
+      {/* <a className="navbar__item" href="./home.html">
         Home
-      </a>
+      </a> */}
       <a className="navbar__item" href="#">
         Dashboard
       </a>
-      <a className="navbar__item" href="./services.html">
+      <Link className='navbar__item'  to='/services'>Services</Link>
+      {/* <a className="navbar__item" href="./services.html">
         Services
-      </a>
+      </a> */}
       <a className="navbar__item" href="./products.html">
         Products
       </a>
