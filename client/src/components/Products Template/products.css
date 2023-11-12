@@ -1,0 +1,93 @@
+.products{
+    width: 100%;
+    height: 93vh;
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(12, 10, 10, 0.8)),
+      url(https://wallpapers.com/images/hd/barber-shop-background-c8pq8le29lkcb64m.jpg);
+    background-size: 100%;
+    background-position: center;
+    background-attachment: scroll;  
+  }
+  
+  .productsParentContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* margin: 50px; */
+  }
+  
+  #productsHeading{
+    height: fit-content;
+    position: relative;
+    top: 5px;
+    font-size: 60px;
+    font-weight: bolder;
+    color: #fff;
+    text-shadow: 3px 3px grey;
+    /* left: 860px; */
+  }
+  
+  .productChildContainer{
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 1300px;
+    /* border: 10px solid white;z */
+    height: 450px;
+  display: flex;
+  position: relative;
+  bottom: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  /* border: 5px solid rgba(255, 255, 255, 0.15); */
+  border-radius: 20px;
+  }
+  .productChildContainer::-webkit-scrollbar{
+  display: none;
+  }
+  
+  .productChildContainer img{
+    
+  width: 200px;
+  height: 200px;
+  }
+  
+  
+  .productCard{
+    margin: 10px;
+    padding: 20px;
+  width: 250px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  border-style:outset;
+  background-color: black;
+  }
+  
+  .insideCard{
+    font-size: 25px;
+  }
+  
+  #detailsBtn{
+    color: #131313;
+    background-color: #fff;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: bolder;
+    padding: 10px;
+    text-decoration: none;
+  }
+  #detailsBtn:hover{
+    color: #fff;
+    background-color: rgb(6, 136, 136);
+  }
+  
