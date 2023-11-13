@@ -5,8 +5,12 @@ export default function Footer(){
 
     
     return(
-        
-        <footer>All rights reserved &copy;</footer>
+        <>
+        <footer>
+            <span>All rights reserved &copy;</span>
+            <span><p>About Us </p></span>
+        </footer>
+        </>
         
     );
 }
