@@ -12,7 +12,7 @@ export default function Footer(){
                 <span><p>About Us </p></span>
                 </div>
                 <div className='contancts'>
-                    <p>Contact us</p>
+                    <p>Contact Us</p>
                 </div>
                 <div className='certificate'>
                     <p>Certificate</p>
