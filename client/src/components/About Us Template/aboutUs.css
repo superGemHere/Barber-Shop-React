@@ -64,3 +64,33 @@
     font-weight: bold;
 }
 
+.secondaryInfo{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.experience{
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid red;
+}
+
+.experienceNumber{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+    width: 120px;
+    font-size: 80px;
+    position: relative;
+    top: -30px;
+    border-radius: 100px;
+    color: #fff;
+    background-color: #131313;
+}
+

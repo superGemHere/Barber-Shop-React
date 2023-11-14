@@ -17,11 +17,16 @@ export default function AboutUs() {
                            <p>Compass was founded on the belief that a haircut is not just a service but a personal experience. With 4+ years of dedicated service to our community, we have become more than just a barbershop. We're a destination where style and tradition meet.</p>
                         </div>
                     </div>
-                    <div className="experience">
-                        <h2>Years of Experience</h2>
-                    </div>
-                    <div className="experience">
-                        <h2>Location</h2>
+                    <div className="secondaryInfo">
+                        <div className="experience">
+                            <h2>Years of Experience</h2>
+                            <div className='experienceNumber'>
+                                <p>4+</p>
+                            </div>
+                        </div>
+                        <div className="Location">
+                            <h2>Location</h2>
+                        </div>
                     </div>
 
                 </div>
