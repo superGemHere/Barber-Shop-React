@@ -17,7 +17,19 @@ footer{
     align-items: center;
     
 }
+.links a{
+    color: #fff;
+    text-decoration: none;
+}
+
+/* .aboutUs-div a{
+    color: #fff;
+} */
 
 .links > div{
     margin: 0 5px 0 5px;
+}
+
+.copyright p{
+    font-size: 12px;
 }

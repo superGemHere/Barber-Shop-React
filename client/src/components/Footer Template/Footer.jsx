@@ -1,5 +1,8 @@
 import './footer.css'
 
+
+import {Link, Route, Routes} from 'react-router-dom'
+
 export default function Footer(){
 
 
@@ -9,7 +12,7 @@ export default function Footer(){
         <footer>
             <div className="links">
                 <div className='aboutUs-div'>
-                <span><p>About Us </p></span>
+                <Link to='/about-us'>About Us</Link>
                 </div>
                 <div className='contancts'>
                     <p>Contact Us</p>
@@ -19,7 +22,7 @@ export default function Footer(){
                 </div>
             </div>
             <div className='copyright'>
-            <span>All rights reserved &copy;</span>
+            <p>All rights reserved &copy;</p>
             </div>
         </footer>
         </>
