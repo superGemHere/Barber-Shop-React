@@ -15,7 +15,7 @@ export default function Footer(){
                 <Link to='/about-us'>About Us</Link>
                 </div>
                 <div className='contancts'>
-                    <p>Contact Us</p>
+                <Link to='/contact-us'>Contact Us</Link>
                 </div>
                 <div className='certificate'>
                     <p>Certificate</p>
