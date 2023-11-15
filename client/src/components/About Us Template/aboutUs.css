@@ -16,10 +16,13 @@
 }
 
 .content {
+    width: 90%;
+    height: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: rgb(255, 255, 255, .2);
 }
 
 .container {
@@ -65,7 +68,7 @@
 }
 
 .secondaryInfo{
-    width: 60%;
+    width: 70%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -73,11 +76,14 @@
 
 .experience{
     height: 200px;
+    width: 500px;
     display: flex;
     align-items: center;
+    color: #fff;
     justify-content: center;
     flex-direction: column;
-    border: 1px solid red;
+    border-radius: 30px;
+background-color: #2e2c2c;
 }
 
 .experienceNumber{
@@ -87,10 +93,35 @@
     height: 90px;
     width: 120px;
     font-size: 80px;
+    font-weight: bold;
     position: relative;
     top: -30px;
     border-radius: 100px;
-    color: #fff;
-    background-color: #131313;
 }
 
+.location{
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #2e2c2c;
+    border-radius: 30px;
+    color: #fff;
+
+    
+    
+}
+
+
+.locationText{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    height: 90px;
+    width: 400px;
+    font-size: 20px;
+    font-weight: bolder;
+    position: relative;
+    top: -40px;
+}

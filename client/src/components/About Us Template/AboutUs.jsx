@@ -24,8 +24,11 @@ export default function AboutUs() {
                                 <p>4+</p>
                             </div>
                         </div>
-                        <div className="Location">
+                        <div className="location">
                             <h2>Location</h2>
+                            <div className='locationText'>
+                                <p>ул. „Банска“ 34, 6301 ж.к. Любен Каравелов, Хасково</p>
+                            </div>
                         </div>
                     </div>
 
