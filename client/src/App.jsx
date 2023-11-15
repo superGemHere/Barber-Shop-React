@@ -8,6 +8,7 @@ import Register from './components/Register Template/Register.jsx';
 import Login from './components/Login Template/Login.jsx';
 import Footer from './components/Footer Template/Footer.jsx';
 import AboutUs from './components/About Us Template/AboutUs.jsx';
+import ContactUs from './components/Contact Us Template/ContactUs.jsx';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <Route path='/register' element={<Register />} />
       <Route path='/login' element={<Login />} />
       <Route path='/about-us' element={<AboutUs />} />
+      <Route path='/contact-us' element={<ContactUs />} />
     </Routes>
     <Footer />
     </>
