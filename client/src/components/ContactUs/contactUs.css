@@ -69,6 +69,8 @@
   background-color: rgb(44, 40, 40, 0.5);
   margin: 10px;
   border-radius: 30px 30px 0 0;
+  position: relative;
+  top: -15px;
 
 }
 .contactText {
@@ -94,7 +96,7 @@
   justify-content: center;
   flex-direction: column;
   border-radius: 0 0 0 30px;
-  background-color: #2e2c2c;
+  background-color: rgba(26, 24, 24, 0.7);
 }
 
 .social-media-links {
@@ -117,7 +119,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #2e2c2c;
+  background-color: rgba(26, 24, 24, 0.7);
   border-radius: 0 0 30px 0;
   color: #fff;
 }
