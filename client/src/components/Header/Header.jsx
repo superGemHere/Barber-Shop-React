@@ -20,9 +20,7 @@ export default function Header(){
       <Link className='navbar__item'  to='/products'>Products</Link>
 
 
-      <a className="navbar__item" href="#">
-        Add Feedback
-      </a>
+      <Link className='navbar__item'  to='/add-photo'>Add Photo</Link>
     </div>
     <div className="user-links">
     <Link className='navbar__item'  to='/login'>Login</Link>
