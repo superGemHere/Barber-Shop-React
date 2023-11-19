@@ -26,3 +26,40 @@
 .intro h1 {
   text-align: center;
 }
+
+.home-buttons{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.home-button-links{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons{
+  border: 3px solid rgb(255, 2555, 255, 0.2);
+  text-decoration: none;
+  width: 20%;
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
+  color: #fff;
+  background-color: transparent;
+  transition: 2s;
+
+
+}
+.buttons:hover{
+  background-color: rgb(70, 180, 194);
+}
+/* .buttons:hover::after{
+  background-color: peachpuff;
+  transition: 2s;
+} */
