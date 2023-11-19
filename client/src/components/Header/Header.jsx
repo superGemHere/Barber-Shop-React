@@ -12,7 +12,7 @@ export default function Header(){
     <div className="interaction-links">
       <Link className='navbar__item'  to='/'>Home</Link>
 
-      <Link className='navbar__item'  to='/clients-feedback'>Feedback</Link>
+      <Link className='navbar__item'  to='/gallery'>Gallery</Link>
       {/* <a className="navbar__item" href="#">
         Feedback
       </a> */}
