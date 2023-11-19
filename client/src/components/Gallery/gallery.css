@@ -36,6 +36,7 @@
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.795);
     border: 5px solid #fff;
+    
 }
 
 .image{
@@ -46,6 +47,8 @@
     background-color: #fff;
     position: relative;
     top: -50px;
+    border-radius: 50%;
+    box-shadow: 4px 4px rgba(117, 116, 116, 0.7);
 }
 
 .userCredentials{
@@ -55,6 +58,8 @@
     align-items: center;
     justify-content: center;
     border-top: 5px solid #fff;
+    border-left: 5px solid #fff;
+    box-shadow: 7px 7px rgba(117, 116, 116, 0.7);
     font-size: 20px;
     position: relative;
     top: -20px;
