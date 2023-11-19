@@ -10,6 +10,7 @@ import Footer from './components/Footer/Footer.jsx';
 import AboutUs from './components/AboutUs/AboutUs.jsx';
 import ContactUs from './components/ContactUs/ContactUs.jsx';
 import Gallery from './components/Gallery/Gallery.jsx';
+import AddPhoto from './components/AddPhoto/AddPhoto.jsx';
 
 
 function App() {
@@ -23,7 +24,9 @@ function App() {
       <Route path='/register' element={<Register />} />
       <Route path='/login' element={<Login />} />
       <Route path='/clients-feedback' element={<Login />} />
+					{/* Photo */}
       <Route path='/gallery' element={<Gallery />} />
+      <Route path='/add-photo' element={<AddPhoto />} />
 
                     {/* Footer */}
       <Route path='/about-us' element={<AboutUs />} />
