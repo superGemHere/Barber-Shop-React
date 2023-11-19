@@ -1,7 +1,8 @@
 
 
 .gallery{
-    height: 93vh;
+    min-height: 93vh;
+    max-height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,7 +10,11 @@
     overflow-y: auto;
     overflow-x: hidden;
     color: #fff;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+.gallery > h1{
+    font-family: 'Agbalumo';
+    text-shadow: 0 7px 7px#fff;
 }
 /* .gallery h1{
     position: relative;
@@ -21,8 +26,11 @@
     display: flex;
     flex-wrap: wrap;
     width: 95%;
-    height: 80%
+    height: 80%;
+    margin: 20px;
+    
 }
+
 
 .photoCard{
     color: #131313;
@@ -34,10 +42,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.795);
+    background: linear-gradient(
+    225deg,
+    rgb(13, 13, 13),
+    rgb(228, 231, 233),
+    rgb(13, 13, 13)
+  );
     border: 5px solid #fff;
     
 }
+
+.photoCard:hover{
+    transform: scale(1.02);
+      
+  }
 
 .image{
     padding: 10px;
@@ -70,6 +88,7 @@
     border-top: 3px solid #fff;
     border-bottom: 3px solid #fff;
     text-align: center;
+    font-weight: bold;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
