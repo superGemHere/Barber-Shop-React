@@ -65,7 +65,7 @@
     background-color: #fff;
     position: relative;
     top: -50px;
-    border-radius: 50%;
+    border-radius: 0%;
     box-shadow: 4px 4px rgba(117, 116, 116, 0.7);
 }
 
@@ -93,6 +93,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 5px;
+    
 }
 
 .username{
