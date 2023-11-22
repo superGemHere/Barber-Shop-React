@@ -13,6 +13,7 @@ import Gallery from './components/Gallery/Gallery.jsx';
 import AddPhoto from './components/AddPhoto/AddPhoto.jsx';
 import GalleryDetails from './components/GalleryDetails/GalleryDetails.jsx';
 import { useState } from 'react';
+import AuthContext from './contexts/authContext.js';
 
 
 function App() {
@@ -26,13 +27,14 @@ function App() {
 
   return (
     <>
+    <AuthContext.Provider value={{loginSubmitHandler}}>
     <Header />
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/services' element={<Services />} />
       <Route path='/products' element={<Products />} />
       <Route path='/register' element={<Register />} />
-      <Route path='/login' element={<Login loginSubmitHandler={loginSubmitHandler} />} />
+      <Route path='/login' element={<Login />} />
       <Route path='/clients-feedback' element={<Login />} />
 					{/* Photo */}
       <Route path='/gallery' element={<Gallery />} />
@@ -45,6 +47,7 @@ function App() {
       <Route path='/contact-us' element={<ContactUs />} />
     </Routes>
     <Footer />
+    </AuthContext.Provider>
     </>
   );
 
