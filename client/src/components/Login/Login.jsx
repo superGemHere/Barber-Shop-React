@@ -1,19 +1,30 @@
 import './login.css'
+import useForm from '../../hooks/useForm';
 
-export default function Login(){
+const LoginFormKeys = {
+  EMAIL: 'email',
+  PASSWORD: 'password',
+}
 
+export default function Login({
+  loginSubmitHandler,
+}){
+  const {values, onChange, onSubmit} = useForm(loginSubmitHandler, {
+    email: '',
+    password: '',
+  });
 
     return(
 
         <main className="login">
         <div className="login-container">
-          <form className="login-form" action method="POST">
+          <form className="login-form" method="POST" onSubmit={onSubmit}>
             <label htmlFor="email">Email</label>
-            <input type="text" name="email" placeholder="example@abv.bg" />
+            <input type="text" name={LoginFormKeys.EMAIL} placeholder="example@abv.bg" onChange={onChange} value={values[LoginFormKeys.EMAIL]} />
             <label htmlFor="password">Password</label>
-            <input type="password" name="password" placeholder="Enter your password.." />
+            <input type="password" name={LoginFormKeys.PASSWORD} placeholder="Enter your password.." onChange={onChange} value={values[LoginFormKeys.PASSWORD]}/>
             <div className="submitBtn">
-              <input type="button" defaultValue="SIGN UP" />
+              <input type="submit" defaultValue="SIGN IN" />
             </div>
             <div className="existingAccount">
               <a href="javascript:void(0)">Don't have an account?</a>
