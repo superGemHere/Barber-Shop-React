@@ -6,7 +6,7 @@ export default function GalleryDetails(){
     return(
         <>
         <main className="galleryDetails">
-
+            
         </main>
         </>
     );
