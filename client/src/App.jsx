@@ -12,9 +12,18 @@ import ContactUs from './components/ContactUs/ContactUs.jsx';
 import Gallery from './components/Gallery/Gallery.jsx';
 import AddPhoto from './components/AddPhoto/AddPhoto.jsx';
 import GalleryDetails from './components/GalleryDetails/GalleryDetails.jsx';
+import { useState } from 'react';
 
 
 function App() {
+  const [auth, setAuth] = useState({});
+
+
+  const loginSubmitHandler = (values) => {
+    console.log(values)
+  }
+
+
   return (
     <>
     <Header />
@@ -23,7 +32,7 @@ function App() {
       <Route path='/services' element={<Services />} />
       <Route path='/products' element={<Products />} />
       <Route path='/register' element={<Register />} />
-      <Route path='/login' element={<Login />} />
+      <Route path='/login' element={<Login loginSubmitHandler={loginSubmitHandler} />} />
       <Route path='/clients-feedback' element={<Login />} />
 					{/* Photo */}
       <Route path='/gallery' element={<Gallery />} />
