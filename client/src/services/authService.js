@@ -11,3 +11,20 @@ export const  login = async(email, password) => {
 
     return result;
 }
+
+export const register = (firstName, lastName, email, password) => {
+    console.log(firstName)
+    console.log(lastName)
+    console.log(email)
+    console.log(password)
+ const res = request.post(`${baseUrl}/register`, {
+    firstName,
+    lastName,
+    email,
+    password
+})
+
+return res;
+
+// console.log(res)
+}
