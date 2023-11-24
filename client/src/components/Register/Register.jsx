@@ -35,21 +35,21 @@ export default function Register(){
             name="firstName"
             placeholder="Example: John"
             onChange={onChange}
-            value={values[RegisterFormKeys.FirstName]}/>
+            values={values[RegisterFormKeys.FirstName]}/>
             <label htmlFor="lastName">Last Name</label>
             <input
             type="text"
             name="lastName"
             placeholder="Example: Wick"
             onChange={onChange}
-            value={values[RegisterFormKeys.LastName]}/>
+            values={values[RegisterFormKeys.LastName]}/>
             <label htmlFor="email">Email</label>
             <input
             type="text"
             name="email"
             placeholder="example@abv.bg"
             onChange={onChange}
-            value={values[RegisterFormKeys.Email]}/>
+            values={values[RegisterFormKeys.Email]}/>
 
            <label htmlFor="password">Password</label>
             <input
@@ -57,14 +57,14 @@ export default function Register(){
             name="password"
             placeholder="Enter your password.."
             onChange={onChange}
-            value={values[RegisterFormKeys.Password]}/>
+            values={values[RegisterFormKeys.Password]}/>
             <label htmlFor="repeatPassword">Repeat Password</label>
             <input
             type="password"
             name="repeatPassword"
             placeholder="Repeat your password.."
             onChange={onChange}
-            value={values[RegisterFormKeys.RepeatPassword]}/>
+            values={values[RegisterFormKeys.RepeatPassword]}/>
             <div className="submitBtn">
               <input type="submit" defaultValue="SIGN UP" />
             </div>
