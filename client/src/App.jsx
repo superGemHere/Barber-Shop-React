@@ -1,5 +1,13 @@
-import {Routes, Route} from 'react-router-dom'
 import './App.css';
+
+import { useState } from 'react';
+import {Routes, Route, useNavigate} from 'react-router-dom'
+
+import * as authService from './services/authService.js'
+import AuthContext from './contexts/authContext.js';
+import Path from './paths.js';
+
+
 import Header from './components/Header/Header.jsx'
 import Home from './components/Home/Home.jsx';
 import Services from './components/Services/Services.jsx';
@@ -12,16 +20,18 @@ import ContactUs from './components/ContactUs/ContactUs.jsx';
 import Gallery from './components/Gallery/Gallery.jsx';
 import AddPhoto from './components/AddPhoto/AddPhoto.jsx';
 import GalleryDetails from './components/GalleryDetails/GalleryDetails.jsx';
-import { useState } from 'react';
-import AuthContext from './contexts/authContext.js';
 
 
 function App() {
+  const navigate = useNavigate();
   const [auth, setAuth] = useState({});
 
 
-  const loginSubmitHandler = (values) => {
-    console.log(values)
+  const loginSubmitHandler = async(values) => {
+    const result = await authService.login(values.email, values.password);
+
+    setAuth(result)
+    navigate(Path.Home)
   }
 
 
@@ -30,7 +40,7 @@ function App() {
     <AuthContext.Provider value={{loginSubmitHandler}}>
     <Header />
     <Routes>
-      <Route path='/' element={<Home />} />
+      <Route path={Path.Home} element={<Home />} />
       <Route path='/services' element={<Services />} />
       <Route path='/products' element={<Products />} />
       <Route path='/register' element={<Register />} />
