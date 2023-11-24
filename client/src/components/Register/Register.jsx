@@ -1,8 +1,24 @@
 import './register.css'
 
+import { useContext } from 'react';
+import AuthContext from '../../contexts/authContext';
+import useForm from '../../hooks/useForm';
+
+
+const RegisterFormKeys = {
+  FirstName: 'firstName',
+  LastName: 'lastName',
+  Email: 'email',
+  Password: 'password',
+  RepeatPassword: 'repeatPassword'
+}
+
+
 export default function Register(){
+  const {registerSubmitHandler} = useContext(AuthContext);
+  const {} = useForm(registerSubmitHandler, {
 
-
+  })
 
     return (
 
