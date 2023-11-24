@@ -8,7 +8,7 @@ export default function Register(){
 
         <main className="register">
         <div className="register-container">
-          <form className="register-form" action method="POST">
+          <form className="register-form" method="POST">
             <label htmlFor="firstName">First Name</label>
             <input type="text" name="firstName" placeholder="Example: John" />
             <label htmlFor="lastName">Last Name</label>
@@ -20,7 +20,7 @@ export default function Register(){
             <label htmlFor="repeatPassword">Repeat Password</label>
             <input type="password" name="repeatPassword" placeholder="Repeat your password.." />
             <div className="submitBtn">
-              <input type="button" defaultValue="SIGN UP" />
+              <input type="submit" defaultValue="SIGN UP" />
             </div>
             <div className="existingAccount">
               <a href="javascript:void(0)">Already have an account?</a>
