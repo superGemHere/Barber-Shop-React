@@ -34,10 +34,16 @@ function App() {
     navigate(Path.Home)
   }
 
+  const values = {
+    loginSubmitHandler,
+    username: auth.username,
+    email: auth.email,
+    isAuthenticated: !!auth.username,
+  }
 
   return (
     <>
-    <AuthContext.Provider value={{loginSubmitHandler}}>
+    <AuthContext.Provider value={values}>
     <Header />
     <Routes>
       <Route path={Path.Home} element={<Home />} />
