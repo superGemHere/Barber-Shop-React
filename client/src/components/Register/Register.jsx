@@ -3,6 +3,7 @@ import './register.css'
 import { useContext } from 'react';
 import AuthContext from '../../contexts/authContext';
 import useForm from '../../hooks/useForm';
+import { Link } from 'react-router-dom';
 
 
 const RegisterFormKeys = {
@@ -69,8 +70,8 @@ export default function Register(){
               <input type="submit" defaultValue="SIGN UP" />
             </div>
             <div className="existingAccount">
-              <a href="javascript:void(0)">Already have an account?</a>
-              <a href="#" id="SignIn"> Sign In</a>
+              <p>Already have an account?</p>
+              <Link to={'/login'} id="SignIn"> Sign In</Link>
             </div>
           </form>
         </div>
