@@ -14,6 +14,7 @@ import Services from './components/Services/Services.jsx';
 import Products from './components/Products/Products.jsx';
 import Register from './components/Register/Register.jsx';
 import Login from './components/Login/Login.jsx';
+import Logout from './components/Logout/Logout.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import AboutUs from './components/AboutUs/AboutUs.jsx';
 import ContactUs from './components/ContactUs/ContactUs.jsx';
@@ -24,13 +25,18 @@ import GalleryDetails from './components/GalleryDetails/GalleryDetails.jsx';
 
 function App() {
   const navigate = useNavigate();
-  const [auth, setAuth] = useState({});
+  const [auth, setAuth] = useState(() => {
+    localStorage.removeItem('accessToken');
+
+    return{};
+  });
 
 
   const loginSubmitHandler = async(values) => {
     const result = await authService.login(values.email, values.password);
 
-    setAuth(result)
+    setAuth(result);
+    localStorage.setItem('accessToken', result.accessToken)
 
     navigate(Path.Home)
   }
@@ -40,17 +46,25 @@ function App() {
     const result = await authService.register(values.firstName, values.lastName, values.email, values.password);
 
     setAuth(result)
+    localStorage.setItem('accessToken', result.accessToken)
 
     navigate(Path.Home)
   }
 
-  console.log(auth)
+  const logoutHandler = () => {
+    setAuth({})
+    localStorage.removeItem('accessToken')
+
+    navigate(Path.Home)
+
+  }
 
   const values = {
     loginSubmitHandler,
     registerSubmitHandler,
+    logoutHandler,
     email: auth.email,
-    isAuthenticated: !!auth.email,
+    isAuthenticated: !!auth.accessToken,
   }
 
   return (
@@ -63,6 +77,7 @@ function App() {
       <Route path='/products' element={<Products />} />
       <Route path='/register' element={<Register />} />
       <Route path='/login' element={<Login />} />
+      <Route path={Path.Logout} element={<Logout />} />
       <Route path='/clients-feedback' element={<Login />} />
 					{/* Photo */}
       <Route path='/gallery' element={<Gallery />} />
