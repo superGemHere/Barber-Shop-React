@@ -49,6 +49,7 @@
     rgb(13, 13, 13)
   );
     border: 5px solid #fff;
+    transition: 200ms ease-in;
     
 }
 
