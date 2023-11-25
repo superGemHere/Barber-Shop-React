@@ -37,14 +37,15 @@ export default function Header() {
           {isAuthenticated &&
             <Link className="navbar__item" to="/add-photo">
               Add Photo
-            </Link>}
+            </Link>
+            }
         </div>
         {isAuthenticated &&
-          <div className="user-links">
-            <a id="userLogout" href="#">
-              Logout
-            </a>
-          </div>}
+          <Link className="user-links" id="userLogout" to="/logout">
+          Logout
+        </Link>
+
+          }
         {!isAuthenticated &&
           <div className="user-links">
             <Link className="navbar__item" to="/login">
@@ -53,19 +54,9 @@ export default function Header() {
             <Link className="navbar__item" to="/register">
               Register
             </Link>
-          </div>}
+          </div>
+          }
 
-        {/* <div className="user-links">
-          <Link className="navbar__item" to="/login">
-            Login
-          </Link>
-          <Link className="navbar__item" to="/register">
-            Register
-          </Link>
-          <a id="userLogout" href="#">
-            Logout
-          </a>
-        </div> */}
       </nav>
     </header>
   );
