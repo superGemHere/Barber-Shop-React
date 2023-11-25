@@ -2,6 +2,7 @@ import './login.css'
 import useForm from '../../hooks/useForm';
 import { useContext } from 'react';
 import AuthContext from '../../contexts/authContext';
+import { Link } from 'react-router-dom';
 
 const LoginFormKeys = {
   EMAIL: 'email',
@@ -28,8 +29,8 @@ export default function Login(){
               <input type="submit" defaultValue="SIGN IN" />
             </div>
             <div className="existingAccount">
-              <a href="javascript:void(0)">Don't have an account?</a>
-              <a href="#" id="SignUp"> Sign Up</a>
+              <p>Don't have an account?</p>
+              <Link to={'/register'} id="SignUp"> Sign Up</Link>
             </div>
           </form></div>
       </main>
