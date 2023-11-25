@@ -69,11 +69,17 @@
   .existingAccount {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
   
   .existingAccount a {
     cursor: default;
     text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+  }
+  .existingAccount p {
+    cursor: default;
     color: #fff;
     font-size: 15px;
   }
