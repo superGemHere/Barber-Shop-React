@@ -4,7 +4,7 @@ import { useState } from 'react';
 import {Routes, Route, useNavigate} from 'react-router-dom'
 
 import * as authService from './services/authService.js'
-import AuthContext from './contexts/authContext.js';
+import {AuthProvider} from './contexts/authContext.jsx';
 import Path from './paths.js';
 
 
@@ -69,7 +69,7 @@ function App() {
 
   return (
     <>
-    <AuthContext.Provider value={values}>
+    <AuthProvider value={values}>
     <Header />
     <Routes>
       <Route path={Path.Home} element={<Home />} />
@@ -90,7 +90,7 @@ function App() {
       <Route path='/contact-us' element={<ContactUs />} />
     </Routes>
     <Footer />
-    </AuthContext.Provider>
+    </AuthProvider>
     </>
   );
 
