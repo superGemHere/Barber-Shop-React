@@ -11,7 +11,7 @@ export const login = async (email, password) => {
   return result;
 };
 
-export const register = (firstName, lastName, email, password) => {
+export const register = (firstName, lastName, email, password, username) => {
   // console.log(firstName)
   // console.log(lastName)
   // console.log(email)
@@ -19,8 +19,9 @@ export const register = (firstName, lastName, email, password) => {
   const res = request.post(`${baseUrl}/register`, {
     firstName,
     lastName,
+    username,
     email,
-    password
+    password,
   });
 
   return res;
