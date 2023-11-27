@@ -10,7 +10,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     color: #fff;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgb(0, 0, 0);
 }
 .gallery > h1{
     font-family: 'Agbalumo';
@@ -24,6 +24,8 @@
 
 .galleryContainer{
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     width: 95%;
     height: 80%;
@@ -61,7 +63,8 @@
 .image{
     padding: 10px;
     width: 70%;
-    height: 60%;
+    min-height: 350px;
+    max-height: 350px;
     border: 2px solid white;
     background-color: #fff;
     position: relative;
@@ -106,4 +109,20 @@ text-underline-offset: 5px;
 
 .createdOn{
 font-size: 12px;
+}
+
+.detailsBtnGallery{
+    color: #fff;
+    text-decoration: none;
+    background-color: #131313;
+    padding: 10px;
+    margin: 10px;
+    border:3px solid #fff;
+    border-radius: 30px;
+    transition: 0.2s ease-out;
+}
+.detailsBtnGallery:hover{
+    color: #131313;
+    background-color: #fff;
+   
 }
