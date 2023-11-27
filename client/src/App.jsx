@@ -2,7 +2,6 @@ import './App.css';
 
 import {Routes, Route} from 'react-router-dom'
 
-import * as authService from './services/authService.js'
 import {AuthProvider} from './contexts/authContext.jsx';
 import Path from './paths.js';
 
@@ -20,6 +19,7 @@ import ContactUs from './components/ContactUs/ContactUs.jsx';
 import Gallery from './components/Gallery/Gallery.jsx';
 import AddPhoto from './components/AddPhoto/AddPhoto.jsx';
 import GalleryDetails from './components/GalleryDetails/GalleryDetails.jsx';
+import NotFound from './components/NotFound/NotFound.jsx';
 
 
 function App() {
@@ -38,13 +38,14 @@ function App() {
       <Route path='/clients-feedback' element={<Login />} />
 					{/* Photo */}
       <Route path='/gallery' element={<Gallery />} />
-      <Route path='/gallery/details/' element={<GalleryDetails />} />
+      <Route path='/gallery/details/:photoId' element={<GalleryDetails />} />
 
       <Route path='/add-photo' element={<AddPhoto />} />
 
                     {/* Footer */}
       <Route path='/about-us' element={<AboutUs />} />
       <Route path='/contact-us' element={<ContactUs />} />
+      <Route path='*' element={<NotFound />} />
     </Routes>
     <Footer />
     </AuthProvider>
