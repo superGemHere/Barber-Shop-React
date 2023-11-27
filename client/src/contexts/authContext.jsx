@@ -25,10 +25,13 @@ export const AuthProvider = ({
   
       navigate(Path.Home)
     }
-  
+    
+    
     const registerSubmitHandler = async (values) =>{
       console.log(values)
-      const result = await authService.register(values.firstName, values.lastName, values.email, values.password);
+      let username = `${values.firstName} ${values.lastName}`
+
+      const result = await authService.register(values.firstName, values.lastName, values.email, values.password, username);
   
       setAuth(result)
       localStorage.setItem('accessToken', result.accessToken)
