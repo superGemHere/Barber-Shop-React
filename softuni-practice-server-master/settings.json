@@ -2,25 +2,65 @@
     "identity": "email",
     "protectedData": {
         "users": {
-            "35c62d76-8152-4626-8712-eeb96381bea8": {
-                "email": "peter@abv.bg",
-                "username": "Peter",
-                "hashedPassword": "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-            },
-            "847ec027-f659-4086-8032-5173e2f9c93a": {
-                "email": "george@abv.bg",
-                "username": "George",
-                "hashedPassword": "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-            },
-            "60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
-                "email": "admin@abv.bg",
-                "username": "Admin",
-                "hashedPassword": "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
-            }
-        },
+    		"35c62d76-8152-4626-8712-eeb96381bea8": {
+                "firstName": "Peter",
+                "lastName": "Smith",
+    			"email": "peter@abv.bg",
+    			"username": "Peter Smith",
+    			"hashedPassword": "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
+    		},
+    		"847ec027-f659-4086-8032-5173e2f9c93a": {
+                "firstName": "George",
+                "lastName": "Junnior",
+    			"email": "george@abv.bg",
+    			"username": "George Junnior",
+    			"hashedPassword": "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
+    		},
+    		"60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
+                "firstName": "Admin",
+                "lastName": "Admin",
+    			"email": "admin@abv.bg",
+    			"username": "Admin Admin",
+    			"hashedPassword": "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
+    		}
+    	},
         "sessions": {}
     },
     "seedData": {
+        "photos": [
+            {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "imageUrl": "https://www.beyoung.in/blog/wp-content/uploads/2020/04/general-min-1-853x1024.jpg",
+                "caption": "Such a good haircut.",
+                "ownerName": "Peter Smith",
+                "_createdOn": 1701084336447,
+                "_id": "a7771586-b539-487f-853d-edeb25b5b575"
+            },
+            {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "imageUrl": "https://www.beyoung.in/blog/wp-content/uploads/2020/04/Short-Haircuts-for-Men-min-853x1024.jpg",
+                "caption": "The barber has hands of gold.",
+                "ownerName": "Peter Smith",
+                "_createdOn": 1701085310987,
+                "_id": "1b5fbab3-3d78-4cc7-b629-509134c868a4"
+            },
+            {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "imageUrl": "https://i.pinimg.com/736x/6b/04/c5/6b04c567ad72f96a65f43dfd5274c0e9.jpg",
+                "caption": "Really good haircut.",
+                "ownerName": "Peter Smith",
+                "_createdOn": 1701085414906,
+                "_id": "f05fa00a-6bff-46bc-aff4-9ed179377564"
+            },
+            {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "imageUrl": "https://images.unsplash.com/photo-1630827020718-3433092696e7?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWVucyUyMGhhaXJjdXR8ZW58MHx8MHx8fDA%3D",
+                "caption": "Great Haircut.",
+                "ownerName": "Peter Smith",
+                "_createdOn": 1701085661553,
+                "_id": "3163772a-b627-464c-b3c7-57d0e85fef5a"
+            }
+        ],
         "recipes": {
             "3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
