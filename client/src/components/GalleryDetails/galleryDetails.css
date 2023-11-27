@@ -1,6 +1,91 @@
 
 
 .galleryDetails{
+    width: 100%;
     height: 93vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: rgba(3, 3, 3, 0.7);
+}
+
+.detailsParent{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #131313;
+    padding: 20px;
+    border-radius: 2%;
+    
+}
+
+.detailsCard{
+    width: 99%;
+    height: 90%;
+    background-color: #131313;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 10px solid azure;
+}
+
+.detailsImage{
+    width: 50%;
+    height: 97%;
+    margin: 0 100px 0 0;
+    border-radius: 20px 0 0 20px;
+}
+
+.detailsText{
+    width: 30%;
+    height: 97%;
+    margin: 0 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: azure;
+    border-radius: 0 20px 20px 0;
+}
+
+.detailsOwner{
+position: relative;
+top: -100px;
+}
+
+.detailsCaps{
+    position: relative;
+    top: -100px;
+    font-weight: 650;
+}
+
+.detailsBtn{
+    width: 90%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #131313;
+}
+
+
+.btnClass{
+    color: #fff;
+    width: 200px;
+    text-decoration: none;
+    margin-left: 50px;
+    margin-right: 50px;
+
+}
+.btnClass:hover{
+    color: #131313;
+    background-color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 50px;
+    margin-right: 50px;
+
 }
