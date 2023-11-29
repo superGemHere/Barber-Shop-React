@@ -24,3 +24,8 @@ export const getOnePhotos = async(photoId) => {
 
     return result;
 }
+export const updatePhoto =  async (photoId, photoData) => {
+    const result = await request.put(`${baseUrl}/photos/${photoId}`, photoData)
+
+    return result;
+}

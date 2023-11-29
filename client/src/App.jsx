@@ -20,6 +20,7 @@ import Gallery from './components/Gallery/Gallery.jsx';
 import AddPhoto from './components/AddPhoto/AddPhoto.jsx';
 import GalleryDetails from './components/GalleryDetails/GalleryDetails.jsx';
 import NotFound from './components/NotFound/NotFound.jsx';
+import UpdatePhoto from './components/UpdatePhoto/UpdatePhoto.jsx';
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
 					{/* Photo */}
       <Route path='/gallery' element={<Gallery />} />
       <Route path='/gallery/details/:photoId' element={<GalleryDetails />} />
+      <Route path='/gallery/edit/:photoId' element={<UpdatePhoto />} />
 
       <Route path='/add-photo' element={<AddPhoto />} />
 
