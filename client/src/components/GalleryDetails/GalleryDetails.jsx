@@ -1,17 +1,33 @@
 import './galleryDetails.css'
 
-import {Link, useParams} from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import {Link, useParams, useNavigate} from 'react-router-dom';
+
 
 import * as postService from '../../services/postService';
-import { useEffect, useState } from 'react';
+import AuthContext from '../../contexts/authContext';
 
 export default function GalleryDetails(){
+    const {userId} = useContext(AuthContext)
     const [photo, setPhoto] = useState({});
     const {photoId} = useParams();
+    const navigate = useNavigate();
+
     useEffect(() => {
         postService.getOnePhotos(photoId)
         .then(result => setPhoto(result))
-    }, [photoId])
+    }, [photoId]);
+
+    
+
+    const deleteHandler = async () => {
+        if(confirm('Are you sure you want to delete this post?')){
+            await postService.deletePhoto(photoId);
+            navigate('/gallery');
+        }
+    }
+
+    const isOwner = photo._ownerId === userId;
     return(
         <>
         <main className="galleryDetails">
@@ -26,10 +42,13 @@ export default function GalleryDetails(){
                         <h2>Caption</h2>
                         <p>{photo.caption}</p>
                        </div>
-                       <div className='detailsBtn'>
-                    <Link to={`/gallery/delete/${photoId}`} className='btnClass'>Delete</Link>
-                    <Link to={`/gallery/edit/${photoId}`} className='btnClass'>Edit</Link>
-                       </div>
+                       {isOwner &&
+                           <div className='detailsBtn'>
+                           <button  className=' delBtn' onClick={deleteHandler}>Delete</button>
+                           <Link to={`/gallery/edit/${photoId}`} className='btnClass'>Edit</Link>
+                            </div>
+                       }
+                   
                     </div>
                 </div>
             </div>
