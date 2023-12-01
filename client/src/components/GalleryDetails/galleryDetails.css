@@ -89,3 +89,20 @@ top: -100px;
     margin-right: 50px;
 
 }
+
+.delBtn{
+    color: #fff;
+    background-color:transparent;
+    border: transparent;
+    font-family: Raleway;
+    font-size: 30px;
+    font-size: 23px;
+    width: 200px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.delBtn:hover{
+    background-color: red;
+    
+}
