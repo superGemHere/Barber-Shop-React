@@ -41,9 +41,16 @@ export default function Header() {
             }
         </div>
         {isAuthenticated &&
-          <Link className="user-links" id="userLogout" to="/logout">
+        <div className="user-links">
+          <Link className="navbar__item" id="userLogout" to="/logout">
           Logout
         </Link>
+          <Link className="navbar__item" id="admin" to="/admin">
+          Admin
+        </Link>
+
+        </div>
+
 
           }
         {!isAuthenticated &&
