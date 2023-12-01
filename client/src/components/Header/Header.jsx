@@ -9,9 +9,9 @@ export default function Header() {
   return (
     <header className="header">
       {isAuthenticated && (
-        <a className="profile-link" href="#">
-        Profile
-      </a>
+       <Link className="profile-link" to="/profile">
+       Profile
+     </Link>
       )}
       
       <nav className="navbar">

@@ -21,6 +21,7 @@ import AddPhoto from './components/AddPhoto/AddPhoto.jsx';
 import GalleryDetails from './components/GalleryDetails/GalleryDetails.jsx';
 import NotFound from './components/NotFound/NotFound.jsx';
 import UpdatePhoto from './components/UpdatePhoto/UpdatePhoto.jsx';
+import Profile from './components/Profile/Profile.jsx';
 
 
 function App() {
@@ -41,8 +42,9 @@ function App() {
       <Route path='/gallery' element={<Gallery />} />
       <Route path='/gallery/details/:photoId' element={<GalleryDetails />} />
       <Route path='/gallery/edit/:photoId' element={<UpdatePhoto />} />
-
       <Route path='/add-photo' element={<AddPhoto />} />
+          {/* Profile */}
+      <Route path='/profile' element={<Profile />}/>
 
                     {/* Footer */}
       <Route path='/about-us' element={<AboutUs />} />
