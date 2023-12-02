@@ -4,7 +4,7 @@
     max-height: fit-content;
     display: flex;
     justify-content: center;
-    background-color: #131313;
+    background-color: black;
     /* background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(12, 10, 10, 0.8)),
       url(https://wallpapers.com/images/hd/barber-shop-background-c8pq8le29lkcb64m.jpg);
     background-size: 100%;
@@ -21,7 +21,8 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* margin: 50px; */
+    margin: 50px;
+    margin-top: 100px;
   }
   
   #productsHeading{
@@ -32,6 +33,8 @@
     font-weight: bolder;
     color: #fff;
     text-shadow: 3px 3px grey;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
     /* left: 860px; */
   }
   
@@ -56,6 +59,7 @@
     
   width: 200px;
   height: 200px;
+  background-size: 100%;
   }
   
   
@@ -72,6 +76,11 @@
   border-radius: 10px;
   border-style:outset;
   background-color: black;
+  transition: 100ms;
+  }
+
+  .productCard:hover{
+    scale: 1.05;
   }
   
   .insideCard{
@@ -92,3 +101,6 @@
     background-color: rgb(6, 136, 136);
   }
   
+  .zeroProducts{
+    color: #fff;
+  }
