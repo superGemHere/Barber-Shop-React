@@ -12,7 +12,7 @@
 
 .add-product{
     width: 25%;
-    height: 500px;
+    height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,10 +32,13 @@
     color: black;
     font-weight: 600;
 }
+.add-product-form input{
+    font-weight: 600;
+}
 
 .add-service{
     width: 25%;
-    height: 500px;
+    height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
