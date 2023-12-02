@@ -1,7 +1,7 @@
 import './gallery.css'
 
 import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 
 import * as postService from '../../services/postService';
 
@@ -9,6 +9,7 @@ import * as postService from '../../services/postService';
 
 export default function Gallery(){
     const [photos, setPhotos] = useState([]);
+    const navigate = useNavigate();
     useEffect( () => {
        
     postService.getAllPhotos()
@@ -28,7 +29,8 @@ export default function Gallery(){
             <div className="galleryContainer">
             {!isEmpty && photos.map(currentPhoto => {
                 return(
-                <div className='photoCard' key={currentPhoto._id} >
+                    <>
+                {/* <div className='photoCard' key={currentPhoto._id} >
                     <img className='image' src={currentPhoto.imageUrl} alt="" />
                     <div className='userCredentials'>
                         <p className='photoCaption'>{currentPhoto.caption}</p>
@@ -36,7 +38,17 @@ export default function Gallery(){
                         <p className='createdOn'>{currentPhoto._createdOn}</p>
                     <Link to={`/gallery/details/${currentPhoto._id}`} className='detailsBtnGallery'>Details</Link>
                     </div>
+                    </div> */}
+
+                    <div className="item" onClick={() => navigate(`/gallery/details/${currentPhoto._id}`)}>
+                        <div className="polaroid">
+                            <img src={currentPhoto.imageUrl}/>
+                        <div className="caption">{currentPhoto.caption}</div>
+                        </div>
                     </div>
+                    
+                    </>
+                    
                 
                 )
                 
