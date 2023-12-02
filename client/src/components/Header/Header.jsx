@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
 
 export default function Header() {
-  const { isAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated, isAdmin } = useContext(AuthContext);
   return (
     <header className="header">
       {isAuthenticated && (
@@ -45,9 +45,10 @@ export default function Header() {
           <Link className="navbar__item" id="userLogout" to="/logout">
           Logout
         </Link>
-          <Link className="navbar__item" id="admin" to="/admin">
+          {isAdmin && <Link className="navbar__item" id="admin" to="/admin">
           Admin
-        </Link>
+        </Link>}
+          
 
         </div>
 
