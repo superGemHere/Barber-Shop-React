@@ -23,6 +23,7 @@ import NotFound from './components/NotFound/NotFound.jsx';
 import UpdatePhoto from './components/UpdatePhoto/UpdatePhoto.jsx';
 import Profile from './components/Profile/Profile.jsx';
 import Admin from './components/Admin/Admin.jsx';
+import ProductDetails from './components/ProductDetails/ProductDetails.jsx';
 
 
 function App() {
@@ -34,11 +35,12 @@ function App() {
     <Routes>
       <Route path={Path.Home} element={<Home />} />
       <Route path='/services' element={<Services />} />
-      <Route path='/products' element={<Products />} />
       <Route path='/register' element={<Register />} />
       <Route path='/login' element={<Login />} />
       <Route path={Path.Logout} element={<Logout />} />
-      <Route path='/clients-feedback' element={<Login />} />
+          {/* Products */}
+      <Route path='/products' element={<Products />} />
+      <Route path='/products/details/:productId' element={<ProductDetails />} />
 					{/* Photo */}
       <Route path='/gallery' element={<Gallery />} />
       <Route path='/gallery/details/:photoId' element={<GalleryDetails />} />
