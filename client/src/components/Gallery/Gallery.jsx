@@ -25,29 +25,19 @@ export default function Gallery(){
     return(
         
         <main className="gallery">
-            <h1>Compass Gallery</h1>
+            {/* <h1>Compass Gallery</h1> */}
             <div className="galleryContainer">
             {!isEmpty && photos.map(currentPhoto => {
                 return(
-                    <>
-                {/* <div className='photoCard' key={currentPhoto._id} >
-                    <img className='image' src={currentPhoto.imageUrl} alt="" />
-                    <div className='userCredentials'>
-                        <p className='photoCaption'>{currentPhoto.caption}</p>
-                        <p className='username'>By: {currentPhoto.ownerName}</p>
-                        <p className='createdOn'>{currentPhoto._createdOn}</p>
-                    <Link to={`/gallery/details/${currentPhoto._id}`} className='detailsBtnGallery'>Details</Link>
-                    </div>
-                    </div> */}
+                
 
-                    <div className="item" onClick={() => navigate(`/gallery/details/${currentPhoto._id}`)}>
+                    <div className="item" key={currentPhoto._id} onClick={() => navigate(`/gallery/details/${currentPhoto._id}`)}>
                         <div className="polaroid">
                             <img src={currentPhoto.imageUrl}/>
                         <div className="caption">{currentPhoto.caption}</div>
                         </div>
                     </div>
                     
-                    </>
                     
                 
                 )
@@ -59,3 +49,14 @@ export default function Gallery(){
     );
 
 }
+
+
+{/* <div className='photoCard' key={currentPhoto._id} >
+                    <img className='image' src={currentPhoto.imageUrl} alt="" />
+                    <div className='userCredentials'>
+                        <p className='photoCaption'>{currentPhoto.caption}</p>
+                        <p className='username'>By: {currentPhoto.ownerName}</p>
+                        <p className='createdOn'>{currentPhoto._createdOn}</p>
+                    <Link to={`/gallery/details/${currentPhoto._id}`} className='detailsBtnGallery'>Details</Link>
+                    </div>
+                    </div> */}
