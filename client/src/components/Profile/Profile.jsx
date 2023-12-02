@@ -3,7 +3,7 @@ import './profile.css'
 import { useContext, useEffect, useState } from 'react';
 
 import * as postService from '../../services/postService'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../../contexts/authContext';
 
 
@@ -22,19 +22,22 @@ export default function Profile(){
         
     }, [])
 
- 
+    const isUploaded = userPhotos.length > 0;
+    console.log(isUploaded)
 
     return(
         <main className='profile'>
             <div className='profileContainer'>
+                <div className='profileParent'>
                 <h2>Profile</h2>
             <div className="userInfo">
                 <p>Username : {username}</p>
                 <p>E-mail : {email}</p>
                 <p>Post's count : {userPhotos.length}</p>
             </div>
-            <div className='userPosts'>
-                {userPhotos.map(currentPhoto => {
+            { isUploaded &&
+                <div className='userPosts'>
+                { userPhotos.map(currentPhoto => {
                     return (<div className='userPostCard' key={currentPhoto._id} onClick={() => navigate(`/gallery/details/${currentPhoto._id}`)}>
                     <img className='userPostCardImage' src={currentPhoto.imageUrl} alt="" />
                     </div>   
@@ -42,6 +45,9 @@ export default function Profile(){
                 })}
                 
                 </div>
+            }
+            { !isUploaded && <Link to={'/add-photo'} className='profile-firstUpload'>Upload your first photo</Link>}
+            </div>
             </div>
         </main>
     );
