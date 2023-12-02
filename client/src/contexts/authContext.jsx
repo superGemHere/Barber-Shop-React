@@ -44,8 +44,10 @@ export const AuthProvider = ({
       localStorage.removeItem('accessToken')
   
       navigate(Path.Home)
-  
+      
     }
+
+    const isAdmin = auth._id === '60f0cf0b-34b0-4abd-9769-8c42f830dffc';
   
     const values = {
       loginSubmitHandler,
@@ -54,7 +56,8 @@ export const AuthProvider = ({
       email: auth.email,
       isAuthenticated: !!auth.accessToken,
       userId: auth._id,
-      username: auth.username
+      username: auth.username,
+      isAdmin: isAdmin
     }
     
     
