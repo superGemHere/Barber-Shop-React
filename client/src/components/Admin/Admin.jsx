@@ -54,7 +54,7 @@ export default function Admin() {
                     <input type="text" name='productDescription' onChange={onChange}  value={values.productDescription} />
                     <label htmlFor="productPrice">Price</label>
                     <input type="text" name='productPrice' onChange={onChange}  value={values.productPrice} />
-                    <input type="submit" />
+                    <input type="submit" className='addProductBtn'/>
                 </form>
             </div>
             {/* <div className='add-service'>
