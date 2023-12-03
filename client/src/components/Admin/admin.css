@@ -48,3 +48,16 @@
     border-top: 3px solid white;
     border-bottom: 3px solid white;
 }
+
+.addProductBtn{
+    width: 40%;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    transition: 350ms;
+    border: 5px solid black;
+}
+.addProductBtn:hover{
+    cursor: pointer;
+    color: black;
+    background-color: white;
+}
