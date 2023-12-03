@@ -15,7 +15,6 @@ export default function Gallery(){
     postService.getAllPhotos()
     .then((result) => {
         setPhotos(result)
-        console.log(result)
         })
     
     }, []);
