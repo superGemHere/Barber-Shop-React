@@ -5,10 +5,14 @@ import { useNavigate } from 'react-router-dom'
 import useForm from '../../hooks/useForm';
 
 import * as productService from '../../services/productService'
+import { useContext } from 'react';
+import AuthContext from '../../contexts/authContext';
 
 
 
 export default function Admin() {
+    const {isAdmin} = useContext(AuthContext);
+    console.log(isAdmin)
     const navigate = useNavigate();
 
     const addProductHandler = async(values) => {
@@ -53,7 +57,7 @@ export default function Admin() {
                     <input type="submit" />
                 </form>
             </div>
-            <div className='add-service'>
+            {/* <div className='add-service'>
             <h1>Add Service</h1>
                 <form method='POST' className='add-product-form'>
                     <label htmlFor="service-name">Service Name</label>
@@ -62,7 +66,7 @@ export default function Admin() {
                     <input type="text" name='service-price' />
                     <input type="submit" />
                 </form>
-            </div>
+            </div> */}
         </main>
     );
 }
