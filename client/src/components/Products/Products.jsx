@@ -14,7 +14,7 @@ export default function Products(){
         productService.getAllProducts()
     .then((result) => {
         setProducts(result)
-        console.log(result)
+        // console.log(result)
         })
     
     }, []);
@@ -22,7 +22,7 @@ export default function Products(){
     
     const isEmpty = products.length == 0 ? true : false;
 
-    console.log(isEmpty)
+    // console.log(isEmpty)
 
     return(
         <main className="products">
@@ -31,7 +31,7 @@ export default function Products(){
             <div className="productChildContainer">
                 {!isEmpty && products.map(currentProduct => {
                     return(
-                        <div className="productCard">
+                        <div className="productCard" key={currentProduct._id}>
                             <img src={currentProduct.productImageUrl} alt={currentProduct.productName} />
                             <div className="cardDetails">
                             <div className="insideCard">
