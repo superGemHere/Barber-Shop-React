@@ -32,6 +32,7 @@ export default function ProductDetails(){
 
 
 
+
     return(
         <main className='productDetails'>
             <div className="productContainerDetails">
