@@ -24,6 +24,10 @@ import UpdatePhoto from './components/UpdatePhoto/UpdatePhoto.jsx';
 import Profile from './components/Profile/Profile.jsx';
 import Admin from './components/Admin/Admin.jsx';
 import ProductDetails from './components/ProductDetails/ProductDetails.jsx';
+import AuthGuard from './components/Guards/AuthGuard.jsx';
+import LogRegGuard from './components/Guards/LogRegGuard.jsx';
+import AdminGuard from './components/Guards/AdminGuard.jsx';
+import AuthorizationGuard from './components/Guards/AuthorizationGuard.jsx';
 
 
 function App() {
@@ -33,28 +37,40 @@ function App() {
     <AuthProvider>
     <Header />
     <Routes>
-      <Route path={Path.Home} element={<Home />} />
-      <Route path='/services' element={<Services />} />
-      <Route path='/register' element={<Register />} />
-      <Route path='/login' element={<Login />} />
-      <Route path={Path.Logout} element={<Logout />} />
-          {/* Products */}
-      <Route path='/products' element={<Products />} />
-      <Route path='/products/details/:productId' element={<ProductDetails />} />
-					{/* Photo */}
-      <Route path='/gallery' element={<Gallery />} />
-      <Route path='/gallery/details/:photoId' element={<GalleryDetails />} />
-      <Route path='/gallery/edit/:photoId' element={<UpdatePhoto />} />
-      <Route path='/add-photo' element={<AddPhoto />} />
-          {/* Profile */}
-      <Route path='/profile' element={<Profile />}/>
-          {/* Admin */}
-      <Route path='/admin' element={<Admin />}/>
+			<Route path={Path.Home} element={<Home />} />
+			<Route path='/services' element={<Services />} />
+					{/* Login/Register Guard */}
+				<Route element={<LogRegGuard />}>
+					<Route path='/register' element={<Register />} />
+					<Route path='/login' element={<Login />} />
+				</Route>
+				{/* Products */}
+			<Route path='/products' element={<Products />} />
+			<Route path='/products/details/:productId' element={<ProductDetails />} />
+							{/* Photo */}
+			<Route path='/gallery' element={<Gallery />} />
+			<Route path='/gallery/details/:photoId' element={<GalleryDetails />} />
+				{/* AuthGuard */}
+			<Route element={<AuthorizationGuard />}>
+					<Route path='/gallery/edit/:photoId' element={<UpdatePhoto />} />
+			</Route>
+						{/* AuthGuard */}
+				<Route element={<AuthGuard />}>
+					<Route path='/add-photo' element={<AddPhoto />} />
+					<Route path='/profile' element={<Profile />}/>
+					<Route path={Path.Logout} element={<Logout />} />
+				</Route>
+						{/* Admin Guard */}
+				<Route element={<AdminGuard />}>
+					<Route path='/admin' element={<Admin />}/>
+				</Route>
 
-                    {/* Footer */}
-      <Route path='/about-us' element={<AboutUs />} />
-      <Route path='/contact-us' element={<ContactUs />} />
-      <Route path='*' element={<NotFound />} />
+							{/* Footer */}
+			<Route path='/about-us' element={<AboutUs />} />
+			<Route path='/contact-us' element={<ContactUs />} />
+			<Route path='*' element={<NotFound />} />
+		
+      
     </Routes>
     <Footer />
     </AuthProvider>
