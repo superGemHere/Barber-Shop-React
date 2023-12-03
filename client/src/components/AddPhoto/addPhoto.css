@@ -38,3 +38,16 @@
     font-weight: 900;
 }
 
+.addPhoto-SubmitBtn{
+    width: 20%;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    transition: 350ms;
+}
+
+.addPhoto-SubmitBtn:hover{
+   cursor: pointer;
+   color: black;
+   background-color: white;
+}
+
