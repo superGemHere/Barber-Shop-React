@@ -22,7 +22,7 @@
 }
 
 .profileParent{
-    width: fit-content;
+    width: 90%;
     height: fit-content;
     background-color: grey;
     display: flex;
@@ -36,7 +36,7 @@
 }
 
 .userPosts{
-    width: 80%;
+    max-width: 80%;
     height: 250px;
     padding-left: 170px;
     display: flex;
@@ -58,6 +58,9 @@
     height: fit-content;
     margin: 10px;
     transition: 100ms;
+}
+.userPostCard:first-child{
+   margin-left: 280px;
 }
 .userPostCard:hover{
     scale: 1.1;
