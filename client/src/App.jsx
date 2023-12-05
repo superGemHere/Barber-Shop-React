@@ -28,6 +28,9 @@ import AuthGuard from './components/Guards/AuthGuard.jsx';
 import LogRegGuard from './components/Guards/LogRegGuard.jsx';
 import AdminGuard from './components/Guards/AdminGuard.jsx';
 import AuthorizationGuard from './components/Guards/AuthorizationGuard.jsx';
+import BeardTrimming from './components/ServiceViews/BeardTrimming.jsx';
+import Haircut from './components/ServiceViews/Haircuts.jsx';
+import OtherServices from './components/ServiceViews/OtherServices.jsx';
 
 
 function App() {
@@ -39,28 +42,31 @@ function App() {
     <Routes>
 			<Route path={Path.Home} element={<Home />} />
 			<Route path='/services' element={<Services />} />
-					{/* Login/Register Guard */}
+			<Route path='/services/beard-trimming' element={<BeardTrimming />} />
+			<Route path='/services/haircuts' element={<Haircut />} />
+			<Route path='/services/other-services' element={<OtherServices />} />
+							{/* Login/Register Guard */}
 				<Route element={<LogRegGuard />}>
 					<Route path='/register' element={<Register />} />
 					<Route path='/login' element={<Login />} />
 				</Route>
-				{/* Products */}
+							{/* Products */}
 			<Route path='/products' element={<Products />} />
 			<Route path='/products/details/:productId' element={<ProductDetails />} />
 							{/* Photo */}
 			<Route path='/gallery' element={<Gallery />} />
 			<Route path='/gallery/details/:photoId' element={<GalleryDetails />} />
-				{/* AuthGuard */}
+							{/* Authorization Guard */}
 			<Route element={<AuthorizationGuard />}>
 					<Route path='/gallery/edit/:photoId' element={<UpdatePhoto />} />
 			</Route>
-						{/* AuthGuard */}
+							{/* AuthGuard */}
 				<Route element={<AuthGuard />}>
 					<Route path='/add-photo' element={<AddPhoto />} />
 					<Route path='/profile' element={<Profile />}/>
 					<Route path={Path.Logout} element={<Logout />} />
 				</Route>
-						{/* Admin Guard */}
+							{/* Admin Guard */}
 				<Route element={<AdminGuard />}>
 					<Route path='/admin' element={<Admin />}/>
 				</Route>
