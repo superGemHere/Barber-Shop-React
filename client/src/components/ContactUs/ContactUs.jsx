@@ -17,7 +17,7 @@ export default function ContactUs() {
                         <div className="contacts">
                             <h2>Phone Number</h2>
                             <div className="contactText">
-                            <p className='number'>+359 878 790 3566</p>
+                            <p className='number'>+359 878 791 3266</p>
                             </div>
                         </div>
                         <div className="secondaryInfo">
@@ -25,7 +25,7 @@ export default function ContactUs() {
                                 <h2>Social Media</h2>
                                 <div className='social-media-links'>
                                 <SocialIcon url="https://www.instagram.com/compass.barbershop/?hl=bg" />
-                                <SocialIcon url="https://www.facebook.com/search/top?q=compass%20barber%20shop" />
+                                <SocialIcon url="https://www.facebook.com/profile.php?id=100057548600653" />
                                 </div>
                             </div>
                             <div className="location">
