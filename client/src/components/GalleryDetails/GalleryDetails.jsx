@@ -15,6 +15,7 @@ export default function GalleryDetails(){
     const {userId, username} = useContext(AuthContext);
     const [photo, setPhoto] = useState({});
     const [comments, setComments] = useState([]);
+    const [isError, setIsError] = useState(false);
     const {photoId} = useParams();
     const navigate = useNavigate();
 
@@ -28,8 +29,17 @@ export default function GalleryDetails(){
 
 
     const onCommentSubmit = async() => {
-        const newComment = await commentService.addComent(photoId, username, values.commentInput);
-        setComments(state => [...state, newComment] )
+        try {
+            if(values.commentInput === ''){
+                throw new Error('Can not submit empty comment')
+            }
+            const newComment = await commentService.addComent(photoId, username, values.commentInput);
+
+            setComments(state => [...state, newComment] )
+        } catch (error) {
+            setIsError(true);
+            setTimeout(() => setIsError(false), 2000)
+        }
     }
     const {values, onChange, onSubmit} = useForm( onCommentSubmit, {
         commentInput: '',
@@ -47,6 +57,7 @@ export default function GalleryDetails(){
     return(
         <>
         <main className="galleryDetails">
+                    
                     <div className="photoSection">
                         <div className='imagePlusOwnerButton'>
                             <img className='detailsImage' src={photo.imageUrl} alt={`${photo.ownerName}'s photo`} />    
@@ -79,7 +90,10 @@ export default function GalleryDetails(){
                             })}
                             
                         </div>
-                        <form method='POST' style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} onSubmit={onSubmit}>
+                        {isError &&
+                        <p style={{color:'red', display: 'flex',alignItems:'center',justifyContent: 'center', fontSize: '17px', margin: '0'}}>Cannot submit empty comment.</p>
+                        }
+                        <form method='POST' style={{display: 'flex', alignItems: 'center', justifyContent: 'center', position:'relative', top:'20px'}} onSubmit={onSubmit}>
                             <input type="text" name='commentInput' onChange={onChange} value={values.commentInput} style={{width: "85%", height: '30px', marginLeft: '10px', marginTop: '5px'}}/>
                             <input type="submit" style={{width: "75px", height: '30px', marginLeft: '10px', marginTop: '5px'}}/>
                         </form>
