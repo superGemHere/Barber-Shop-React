@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+.servicePriceList{
+    width: 100%;
+    min-height: 93vh;
+    max-height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Ubuntu', sans-serif;
+    color: #fff;
+    background: url('https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm0yMS1iYWNrZ3JvdW5kLWFlLTMxLWcuanBn.jpg');
+
+}
+.servicePriceList > h1{
+   font-family: Arial, Helvetica, sans-serif;
+   text-shadow: 0px 0px 20px#fff;
+}
+
+.haircutServiceParent{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.servicePriceListInsides{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    left: 70px;
+
+}
+
+.typeInsides{
+    padding: 10px;
+    margin: 10px;
+    width: 500px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: 700;
+    justify-content: center;
+    flex-direction: column;
+    /* color: black;
+    background-color: #ffffffe1;
+    border: 3px solid #fff; */
+}
+
+.typeInsides-SecondChild{
+    font-size: 17px;
+    position: relative;
+    top: -40px;
+}
+
+
+
+.barberContainer1{
+    width:84px;
+    height:306px;
+    position:absolute;
+    top:50%;
+    left: 10%;
+    transform:translate(-50%,-50%);
+  }
+  
+  .ball1{
+    height:22px;
+      width:22px;
+      margin-left:31px;
+      margin-right:31px;
+    border-radius:100px;
+      background-color:#fefbe3;
+  }
+  
+  .endCap1{
+      width:54px;
+      height:15px;
+      margin-left:15px;
+      margin-right:15px;
+      margin-top:5px;
+      margin-bottom:5px;
+      background-color:#fefbe3;
+  }
+  
+  .cap1{
+      width:84px;
+      height:15px;
+      background-color:#fefbe3;
+  }
+  
+  .barberWrap1{
+      height:172px;
+      width:54px;
+      margin-top:5px;
+      margin-bottom:5px;
+      margin-left:15px;
+    margin-right:15px;
+  }
+  
+  .barber1{
+      height:172px;
+      width:54px;
+      position: inherit;
+      background:#fefbe3;
+      background-color: -webkit-linear-gradient(-45deg, transparent 25%, #fefbe3 25%, #fefbe3 50%, transparent 50%, transparent 75%, #fefbe3 75%);
+      background: -moz-linear-gradient(-45deg, transparent 25%, #fefbe3 25%, #fefbe3 50%, transparent 50%, transparent 75%, #fefbe3 75%);
+      background: -o-linear-gradient(-45deg, transparent 25%, #fefbe3 25%, #fefbe3 50%, transparent 50%, transparent 75%, #fefbe3 75%);
+      background: linear-gradient(-45deg, transparent 25%, #fefbe3 25%, #fefbe3 50%, transparent 50%, transparent 75%, #fefbe3 75%);
+      background-size: 27px 27px;
+      -webkit-animation: barberpole 1.5s infinite linear;
+    animation: barberpole 1.5s infinite linear;
+  }
+
+
+.barberContainer2{
+    width:84px;
+    height:306px;
+    position:absolute;
+    top:50%;
+    right: 7.5%;
+    transform:translate(-50%,-50%);
+  }
+  
+  .ball2{
+    height:22px;
+      width:22px;
+      margin-left:31px;
+      margin-right:31px;
+    border-radius:100px;
+      background-color:#fefbe3;
+  }
+  
+  .endCap2{
+      width:54px;
+      height:15px;
+      margin-left:15px;
+      margin-right:15px;
+      margin-top:5px;
+      margin-bottom:5px;
+      background-color:#fefbe3;
+  }
+  
+  .cap2{
+      width:84px;
+      height:15px;
+      background-color:#fefbe3;
+  }
+  
+  .barberWrap2{
+      height:172px;
+      width:54px;
+      margin-top:5px;
+      margin-bottom:5px;
+      margin-left:15px;
+    margin-right:15px;
+  }
+  
+  .barber2{
+      height:172px;
+      width:54px;
+      position: inherit;
+      background:#fefbe3;
+      background-color: -webkit-linear-gradient(-45deg, transparent 25%, #fefbe3 25%, #fefbe3 50%, transparent 50%, transparent 75%, #fefbe3 75%);
+      background: -moz-linear-gradient(-45deg, transparent 25%, #fefbe3 25%, #fefbe3 50%, transparent 50%, transparent 75%, #fefbe3 75%);
+      background: -o-linear-gradient(-45deg, transparent 25%, #fefbe3 25%, #fefbe3 50%, transparent 50%, transparent 75%, #fefbe3 75%);
+      background: linear-gradient(-45deg, transparent 25%, #fefbe3 25%, #fefbe3 50%, transparent 50%, transparent 75%, #fefbe3 75%);
+      background-size: 27px 27px;
+      -webkit-animation: barberpole 1.5s infinite linear;
+    animation: barberpole 1.5s infinite linear;
+  }
+  
+    @-webkit-keyframes barberpole {
+          from {background-position: 0%;}
+          to {background-position: 100%;}
+  }
