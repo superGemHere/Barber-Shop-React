@@ -1,11 +1,12 @@
 import './updatePhoto.css'
 
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom'
 
 import useUpdateForm from '../../hooks/useUpdateForm';
 
 import * as postService from '../../services/postService'
+import AuthContext from '../../contexts/authContext';
 
 const PhotoFormKeys = {
     ImageUrl: 'imageUrl',
@@ -17,6 +18,7 @@ const PhotoFormKeys = {
     // console.log(userSession.firstName)
 
 export default function UpdatePhoto(){
+    const { userId } = useContext(AuthContext);
     const navigate = useNavigate();
     const {photoId} = useParams()
     const [photo, setPhoto] = useState({
@@ -29,10 +31,12 @@ export default function UpdatePhoto(){
         .then(result => {
             setPhoto(result);
         })
-    }, [])
+    }, []);
+    
+    
 
     const updatePhotoHandler = async(values) => {
-        console.log(values)
+        // console.log(values)
         // let userSession = JSON.parse(localStorage.getItem('auth'));
         const result = await postService.updatePhoto(photoId, values);
         navigate(`/gallery/details/${photoId}`)
