@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
 import './notFound.css'
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function NotFound() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate('/404')
+  }, [])
   return (
     <main className="NotFound">
       <div className="notFoundHeadings">
