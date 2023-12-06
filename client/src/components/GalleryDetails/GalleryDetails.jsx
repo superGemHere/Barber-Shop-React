@@ -5,19 +5,35 @@ import {Link, useParams, useNavigate} from 'react-router-dom';
 
 
 import * as postService from '../../services/postService';
+import * as commentService from '../../services/commentService'
 import AuthContext from '../../contexts/authContext';
+import useForm from '../../hooks/useForm';
+
+
 
 export default function GalleryDetails(){
-    const {userId} = useContext(AuthContext)
+    const {userId, username} = useContext(AuthContext);
     const [photo, setPhoto] = useState({});
+    const [comments, setComments] = useState([]);
     const {photoId} = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
         postService.getOnePhotos(photoId)
         .then(result => setPhoto(result))
+
+        commentService.getAll(photoId)
+        .then(setComments)
     }, [photoId]);
 
+
+    const onCommentSubmit = async() => {
+        const newComment = await commentService.addComent(photoId, username, values.commentInput);
+        setComments(state => [...state, newComment] )
+    }
+    const {values, onChange, onSubmit} = useForm( onCommentSubmit, {
+        commentInput: '',
+      });
     
 
     const deleteHandler = async () => {
@@ -31,27 +47,43 @@ export default function GalleryDetails(){
     return(
         <>
         <main className="galleryDetails">
-            <div className='detailsParent'>
-                <div className='detailsCard'>
-                    <img className='detailsImage' src={photo.imageUrl} alt={`${photo.ownerName}'s photo`} />
-                    <div className='detailsText'>
-                       <div className="detailsOwner">
-                        <h3>Owner: {photo.ownerName}</h3>
-                       </div>
-                       <div className='detailsCaps'>
-                        <h2>Caption</h2>
-                        <p>{photo.caption}</p>
-                       </div>
-                       {isOwner &&
-                           <div className='detailsBtn'>
-                           <button  className=' delBtn' onClick={deleteHandler}>Delete</button>
-                           <Link to={`/gallery/edit/${photoId}`} className='btnClass'>Edit</Link>
+                    <div className="photoSection">
+                        <div className='imagePlusOwnerButton'>
+                            <img className='detailsImage' src={photo.imageUrl} alt={`${photo.ownerName}'s photo`} />    
+                        </div>
+                        <div className="detailsText">
+                            <div className="detailsOwner">
+                                <p>Posted by: {photo.ownerName}</p>
+                                <p>On: {photo._createdOn}</p>
                             </div>
-                       }
-                   
+                            <div className='detailsCaps'>
+                                    <p>Caption: {photo.caption}</p>
+                            </div>
+                            {isOwner &&
+                                    <div className='detailsBtn'>
+                                                <button  className=' delBtn' onClick={deleteHandler}>Delete</button>
+                                                <Link to={`/gallery/edit/${photoId}`} className='btnClass'>Edit</Link>
+                                    </div>
+                                }
                     </div>
-                </div>
-            </div>
+                    </div>
+                    <div className="commentSection">
+                        <div className="commentsDetails">
+                            {comments.map(currentComment => {
+                              return(
+                                <div className="insideComment" key={currentComment._id}>
+                                    <p>{currentComment.username}</p><br /><p id='comment'>{currentComment.commentInput}</p>
+                                    <p>{currentComment._createdOn}</p>
+                                </div>
+                              )
+                            })}
+                            
+                        </div>
+                        <form method='POST' style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} onSubmit={onSubmit}>
+                            <input type="text" name='commentInput' onChange={onChange} value={values.commentInput} style={{width: "85%", height: '30px', marginLeft: '10px', marginTop: '5px'}}/>
+                            <input type="submit" style={{width: "75px", height: '30px', marginLeft: '10px', marginTop: '5px'}}/>
+                        </form>
+                    </div>
         </main>
         </>
     );
