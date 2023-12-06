@@ -28,14 +28,15 @@
     height: fit-content;
     position: relative;
     top: 50px;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 60px;
     font-weight: bolder;
-    text-shadow: 3px 3px grey;
-    /* left: 860px; */
+    text-transform: uppercase;
+    text-shadow: 0px 0px 20px#ffffff9d;
   }
   
   .servicesChildContainer{
-    width: 100%;
+    width: 85%;
     height: fit-content;
     display: flex;
     align-items: center;
@@ -54,14 +55,20 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    border: 10px rgba(255, 255, 255, 0.5);
-    border-style:double;
+    margin: 20px;
+    cursor: pointer;
+    /* border: px rgba(255, 255, 255, 0.5); */
+    /* border-style:double; */
     border-radius: 10px;
+    transition: all .4s ease;
+    -webkit-transition: all .4s ease;
+    
   }
   
   .serviceCard:hover {
-    border: 10px solid #fff;
-    border-style:double;
+    scale: 1.05;
+    border: 6px solid rgb(70, 180, 194);;
+    border-style:solid;
   
   }
   .serviceCard:hover > .cardInsights{
@@ -77,13 +84,13 @@
 
   .beardTrimming{
     background-image: linear-gradient(rgba(32, 32, 32, 0.5), rgba(26, 25, 25, 0.5)),
-                url(https://cdn1.vectorstock.com/i/1000x1000/52/20/hair-cut-template-for-barber-shop-vector-33115220.jpg);
+                url(https://www.truefittandhill.co.uk/cdn/shop/products/shave_550x.jpg?v=1579797350);
     background-size: cover;
     background-position: center;
   }
   .haircuts{
     background-image: linear-gradient(rgba(32, 32, 32, 0.5), rgba(26, 25, 25, 0.5)),
-                url(https://c8.alamy.com/comp/2JX5D1C/barber-shaving-client-ink-black-and-white-drawing-2JX5D1C.jpg);
+                url(https://i.pinimg.com/originals/81/e0/6c/81e06c5e204ff163a552a21c211e5654.jpg);
     background-size: cover;
     background-position: center;
   }
@@ -93,10 +100,10 @@
     background-size: cover;
     background-position: center;
   }
-  .masks{
+  /* .masks{
     background-image: linear-gradient(rgba(32, 32, 32, 0.5), rgba(26, 25, 25, 0.5)),
                 url(https://img.freepik.com/premium-vector/facial-mask-beauty-product-young-adult-men-with-spa-facial-mask-skin-care-relaxing-men-s-fashion_635123-64.jpg?w=2000);
     background-size: cover;
     background-position: center;
-  }
+  } */
   
