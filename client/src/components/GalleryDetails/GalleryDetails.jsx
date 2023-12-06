@@ -21,10 +21,11 @@ export default function GalleryDetails(){
 
     useEffect(() => {
         postService.getOnePhotos(photoId)
-        .then(result => setPhoto(result))
+        .then(result => setPhoto(result));
 
         commentService.getAll(photoId)
-        .then(setComments)
+        .then(setComments);
+
     }, [photoId]);
 
 
@@ -80,7 +81,7 @@ export default function GalleryDetails(){
                     </div>
                     <div className="commentSection">
                         <div className="commentsDetails">
-                            {comments.map(currentComment => {
+                            {comments.length > 0 && comments.map(currentComment => {
                               return(
                                 <div className="insideComment" key={currentComment._id}>
                                     <p>{currentComment.username}</p><br /><p id='comment'>{currentComment.commentInput}</p>
@@ -88,6 +89,7 @@ export default function GalleryDetails(){
                                 </div>
                               )
                             })}
+                            { comments.length == 0 && <h3 style={{color: 'white'}}>No comments yet</h3> }
                             
                         </div>
                         {isError &&
