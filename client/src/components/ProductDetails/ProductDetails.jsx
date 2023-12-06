@@ -45,7 +45,9 @@ export default function ProductDetails(){
             </div>
                 {isAdmin && <button className='productDetailsDeleteBtn' onClick={() => deleteHandler(product._id)}>Delete</button>}
                 </div>
-            <p className='buyPolicy'>Products can't be ordered online, you can buy them only from the physical barber shop.</p>
+            <p className='buyPolicy'>Products can't be ordered online. You can buy them only from the physical barber shop.</p>
+            
         </main>
+        
     );
 }
