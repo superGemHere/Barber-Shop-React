@@ -10,7 +10,10 @@
     overflow-y: auto;
     overflow-x: hidden;
     color: #fff;
-    background-color: rgb(0, 0, 0);
+    /* background-color: rgb(0, 0, 0); */
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/89/177/75/artistic-minimalism-black-and-white-minimalist-wallpaper-preview.jpg');
+    background-position: sticky;
+    background-size: cover;
 }
 .gallery > h1{
     font-family: 'Agbalumo';
@@ -34,104 +37,11 @@
 }
 
 
-.photoCard{
-    color: #131313;
-    width: 25%;
-    height: 65%;
-    margin: 60px;
-    font-family: sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(
-    225deg,
-    rgb(13, 13, 13),
-    rgb(228, 231, 233),
-    rgb(13, 13, 13)
-  );
-    border: 5px solid #fff;
-    transition: 200ms ease-in;
-    
-}
-
-.photoCard:hover{
-    transform: scale(1.02);
-      
-  }
-
-.image{
-    padding: 10px;
-    width: 70%;
-    min-height: 350px;
-    max-height: 350px;
-    border: 2px solid white;
-    background-color: #fff;
-    position: relative;
-    top: -50px;
-    border-radius: 0%;
-    box-shadow: 4px 4px rgba(117, 116, 116, 0.7);
-}
-
-.userCredentials{
-    display: flex;
-    width: 90%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-top: 5px solid #fff;
-    border-left: 5px solid #fff;
-    box-shadow: 7px 7px rgba(117, 116, 116, 0.7);
-    font-size: 20px;
-    position: relative;
-    top: -20px;
-}
-
-.photoCaption{
-    width: 70%;
-    border-top: 3px solid #fff;
-    border-bottom: 3px solid #fff;
-    text-align: center;
-    font-weight: bold;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 5px;
-    
-}
-
-.username{
-font-family: sans-serif;
-font-size: 15px;
-
-text-underline-offset: 5px;
-}
-
-.createdOn{
-font-size: 12px;
-}
-
-.detailsBtnGallery{
-    color: #fff;
-    text-decoration: none;
-    background-color: #131313;
-    padding: 10px;
-    margin: 10px;
-    border:3px solid #fff;
-    border-radius: 30px;
-    transition: 0.2s ease-out;
-}
-.detailsBtnGallery:hover{
-    color: #131313;
-    background-color: #fff;
-   
-}
-
-
 .polaroid {
     background: #fff;
     padding: 1rem;
     box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
+    cursor: pointer;
     
   }
   .polaroid > img{
