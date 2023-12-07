@@ -8,7 +8,6 @@ export const addPhoto = async (imageUrl, caption, ownerName) => {
     caption,
     ownerName
   });
-  console.log(result);
   return result;
 };
 
