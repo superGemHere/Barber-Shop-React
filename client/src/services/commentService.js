@@ -19,6 +19,5 @@ export const addComent = async(photoId, username, commentInput) => {
         commentInput
     });
 
-    console.log(result);
     return result;
 }
