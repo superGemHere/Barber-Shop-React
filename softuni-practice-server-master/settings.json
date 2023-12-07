@@ -27,6 +27,9 @@
         "sessions": {}
     },
     "seedData": {
+        "products": {
+            
+        },
         "photos": {
     		"a7771586-b539-487f-853d-edeb25b5b575":{
     			"_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
