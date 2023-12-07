@@ -33,15 +33,16 @@
 }
 
 .userInfo{
+font-weight: bolder;
 }
 
 .userPosts{
     max-width: 80%;
     height: 250px;
-    padding-left: 170px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /* padding-left: 170px; */
+    display:inline-flex;
+    /* align-items: center;
+    justify-content: center; */
     overflow-x: auto;
     overflow-y: none;
     background: linear-gradient(
@@ -57,13 +58,14 @@
     width: fit-content;
     height: fit-content;
     margin: 10px;
+    cursor: pointer;
     transition: 100ms;
+    
 }
-.userPostCard:first-child{
-   margin-left: 280px;
-}
+
 .userPostCard:hover{
     scale: 1.1;
+
 }
 
 .userPostCardImage{
