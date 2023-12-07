@@ -5,30 +5,60 @@ import { useNavigate } from 'react-router-dom'
 import useForm from '../../hooks/useForm';
 
 import * as productService from '../../services/productService'
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import AuthContext from '../../contexts/authContext';
 
 
 
 export default function Admin() {
     const {isAdmin} = useContext(AuthContext);
-    console.log(isAdmin)
+    const [adminError, setAdminError] = useState('');
+    // console.log(isAdmin)
     const navigate = useNavigate();
 
     const addProductHandler = async(values) => {
+        try {
+            
             let productName= values.productName;
             let productBrand= values.productBrand;
             let productImageUrl= values.productImageUrl;
             let productDescription= values.productDescription;
             let productPrice= values.productPrice;
-        const result = await productService.addProduct(
-            productName,
-            productBrand,
-            productImageUrl,
-            productDescription,
-            productPrice
-        );
-        navigate('/products')
+
+            if(
+                values.productName == '' ||
+                values.productBrand == '' ||
+                values.productImageUrl == '' ||
+                values.productDescription == '' ||
+                values.productPrice == ''
+                ){
+                    throw new Error('All fields are required.')
+                }
+            if(Number(values.productPrice) < 0){
+                throw new Error('Price must be positive number')
+            }
+            if(isNaN(Number(values.productPrice))){
+                throw new Error('Price must be number')
+            }
+            if(!values.productImageUrl.match(/^(http|https):\/\//)){
+                throw new Error(`Image's url must start with "http" or "https"`)
+            }
+
+            const result = await productService.addProduct(
+                productName,
+                productBrand,
+                productImageUrl,
+                productDescription,
+                productPrice
+                );
+
+                navigate('/products')
+            } catch (err) {
+            setAdminError(err.message);
+            setTimeout(()=> {
+                setAdminError('');
+            }, 2000)
+        }
       }
 
       const {values, onChange, onSubmit} = useForm(addProductHandler, {
@@ -41,6 +71,11 @@ export default function Admin() {
 
     return (
         <main className="admin-main">
+            {adminError && 
+          <div className="alert4">
+            <strong></strong> {adminError}
+          </div>
+          }
             <div className='add-product'>
                 <h1>Add Product</h1>
                 <form method='POST' className='add-product-form' onSubmit={onSubmit}>
