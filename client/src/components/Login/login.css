@@ -8,7 +8,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
   }
+
+  .alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    position: relative;
+    top: -200px;
+  }
+
+
   
   .login-container {
     width: 30%;

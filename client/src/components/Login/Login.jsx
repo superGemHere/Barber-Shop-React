@@ -1,6 +1,6 @@
 import './login.css'
 import useForm from '../../hooks/useForm';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../contexts/authContext';
 import { Link } from 'react-router-dom';
 
@@ -10,15 +10,23 @@ const LoginFormKeys = {
 }
 
 export default function Login(){
-  const {loginSubmitHandler} = useContext(AuthContext)
+  const {loginSubmitHandler, loginErr} = useContext(AuthContext);
   const {values, onChange, onSubmit} = useForm(loginSubmitHandler, {
     email: '',
     password: '',
   });
 
+
+  
     return(
 
         <main className="login">
+          
+          {loginErr && 
+          <div className="alert">
+            <strong>Danger!</strong> {loginErr}
+          </div>
+          }
         <div className="login-container">
           <form className="login-form" method="POST" onSubmit={onSubmit}>
             <label htmlFor="email">Email</label>
