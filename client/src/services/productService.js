@@ -10,7 +10,6 @@ export const addProduct = async (productName, productBrand, productImageUrl, pro
     productDescription, 
     productPrice
   });
-  console.log(result);
   return result;
 };
 
