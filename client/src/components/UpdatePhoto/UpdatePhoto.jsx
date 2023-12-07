@@ -15,12 +15,12 @@ const PhotoFormKeys = {
 
 
 
-    // console.log(userSession.firstName)
 
 export default function UpdatePhoto(){
     const { userId } = useContext(AuthContext);
     const navigate = useNavigate();
-    const {photoId} = useParams()
+    const {photoId} = useParams();
+    const [addPhotoErr, setAddPhotoErr] = useState('');
     const [photo, setPhoto] = useState({
         imageUrl: '',
         caption: '',
@@ -36,10 +36,29 @@ export default function UpdatePhoto(){
     
 
     const updatePhotoHandler = async(values) => {
-        // console.log(values)
-        // let userSession = JSON.parse(localStorage.getItem('auth'));
-        const result = await postService.updatePhoto(photoId, values);
-        navigate(`/gallery/details/${photoId}`)
+        try {
+            if(values.imageUrl== '' || values.addCaption == ''){
+                throw new Error('All fields are required');
+            }
+            if(!values.imageUrl.match(/^(http|https):\/\//)){
+                throw new Error(`Image's url must start with "http" or "https"`);
+            }
+            if(values.caption.length < 5){
+                throw new Error('Caption must be at least 5 charaters long');
+            }
+            if(values.caption.length > 50){
+                throw new Error('Caption cannot be longer than  50 characters');
+            }
+            
+            const result = await postService.updatePhoto(photoId, values);
+            navigate(`/gallery/details/${photoId}`)
+        } catch (err) {
+            console.log(err)
+            setAddPhotoErr(err.message);
+            setTimeout(()=> {
+                setAddPhotoErr('');
+            }, 2000)
+        }
       }
 
     
@@ -47,6 +66,11 @@ export default function UpdatePhoto(){
 
     return(
         <main className='updatePhoto'>
+             {addPhotoErr && 
+          <div className="alert3">
+            <strong></strong> {addPhotoErr}
+          </div>
+          }
             <div className='parrentUpdateContainer'>
                 <h1>Update your photo</h1>
                 <form className='updatePhotoForm'  method='POST' onSubmit={onSubmit}>
