@@ -9,34 +9,104 @@ const AuthContext = createContext();
 
 
 
+
 export const AuthProvider = ({
     children,
 }) => {
     
     const navigate = useNavigate();
     const [auth, setAuth] = usePersistedState('auth', {});
+    const [loginErr, setLoginErr] = useState('');
+    const [registerErr, setRegisterErr] = useState('');
   
   
     const loginSubmitHandler = async(values) => {
-      const result = await authService.login(values.email, values.password);
-  
-      setAuth(result);
-      localStorage.setItem('accessToken', result.accessToken)
-  
-      navigate(Path.Home)
+      try{
+        
+        if(values.email === ''){
+          throw new Error('Email field cannot be empty');
+        }
+
+        if(values.password === ''){
+          throw new Error('Password field cannot be empty');
+        }
+        
+        const result = await authService.login(values.email, values.password);
+        
+        if(result.status == 403){
+          throw result;
+        }
+    
+        setAuth(result);
+        localStorage.setItem('accessToken', result.accessToken)
+    
+        navigate(Path.Home)
+
+      }catch(err){
+        setLoginErr(err.message);
+        setTimeout(()=> {
+          setLoginErr('');
+        }, 2000)
+        return err.message;
+      }
     }
     
     
     const registerSubmitHandler = async (values) =>{
-      console.log(values)
-      let username = `${values.firstName} ${values.lastName}`
 
-      const result = await authService.register(values.firstName, values.lastName, values.email, values.password, username);
-  
-      setAuth(result)
-      localStorage.setItem('accessToken', result.accessToken)
-  
-      navigate(Path.Home)
+      try {
+        if(values.firstName === ''){
+          throw new Error('First name field cannot be empty');
+        }
+
+        if(values.lastName === ''){
+          throw new Error('Last name field cannot be empty');
+        }
+
+        if(values.email === ''){
+          throw new Error('Email field cannot be empty');
+        }
+
+        if(!values.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){
+          throw new Error('Email is not valid');
+        }
+
+        if(values.password === ''){
+          throw new Error('Password field cannot be empty');
+        }
+        if(values.password.length < 5){
+          throw new Error('Password length must be at least 5 chars long');
+        }
+
+        if(values.reeatPassword === ''){
+          throw new Error('You must repeat the password');
+        }
+
+        if(values.repeatPassword !== values.password){
+          throw new Error('Passwords mismatch!');
+        }
+        
+        
+        
+        let username = `${values.firstName} ${values.lastName}`
+        
+        const result = await authService.register(values.firstName, values.lastName, values.email, values.password, username);
+        
+        if(result.status == 403){
+          throw result;
+        }
+        
+        setAuth(result)
+        localStorage.setItem('accessToken', result.accessToken)
+    
+        navigate(Path.Home)
+      } catch (err) {
+        setRegisterErr(err.message);
+        setTimeout(()=> {
+          setRegisterErr('');
+        }, 2000)
+        return err.message;
+      }
     }
   
     const logoutHandler = () => {
@@ -57,7 +127,9 @@ export const AuthProvider = ({
       isAuthenticated: !!auth.accessToken,
       userId: auth._id,
       username: auth.username,
-      isAdmin: isAdmin
+      isAdmin: isAdmin,
+      loginErr: loginErr,
+      registerErr: registerErr,
     }
     
     
