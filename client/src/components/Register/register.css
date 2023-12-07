@@ -4,11 +4,20 @@
       url(https://wallpapers.com/images/hd/barber-shop-background-c8pq8le29lkcb64m.jpg);
     background-size: 100%;
     background-position: center;
-    background-attachment: scroll;
+    /* background-attachment: scroll; */
     height: 93vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+  }
+  
+  .alert1 {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    position: relative;
+    top: -100px;
   }
   
   .register-container {

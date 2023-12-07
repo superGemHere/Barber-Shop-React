@@ -16,7 +16,7 @@ const RegisterFormKeys = {
 
 
 export default function Register(){
-  const {registerSubmitHandler} = useContext(AuthContext);
+  const {registerSubmitHandler, registerErr} = useContext(AuthContext);
   const {values, onChange, onSubmit} = useForm(registerSubmitHandler, {
     [RegisterFormKeys.FirstName]: '',
     [RegisterFormKeys.LastName]: '',
@@ -28,6 +28,12 @@ export default function Register(){
     return (
 
         <main className="register">
+
+          {registerErr && 
+          <div className="alert1">
+            <strong>Danger!</strong> {registerErr}
+          </div>
+          }
         <div className="register-container">
           <form className="register-form" method="POST" onSubmit={onSubmit}>
             <label htmlFor="firstName">First Name</label>
