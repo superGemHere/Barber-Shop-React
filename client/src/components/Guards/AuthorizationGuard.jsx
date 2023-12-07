@@ -18,13 +18,10 @@ export default function AuthorizationGuard(props){
         postService.getOnePhotos(photoId)
         .then((result) => {
             setPhoto(result);
-            console.log(result)
         })
-        .catch(err => console.log(err))
+        .catch()
     }, [photoId]);
 
-
-    console.log(photo)
     if(photo._ownerId != userId){
         return navigate('/gallery');
     }
