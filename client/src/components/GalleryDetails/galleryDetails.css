@@ -87,6 +87,8 @@ font-weight: 700;
 
 .detailsCaps{
     position: relative;
+    width: 300px;
+    overflow-wrap: break-word;
     top: -100px;
     font-weight: 650;
 }
@@ -160,6 +162,7 @@ font-weight: 700;
    width: 90%;
    height: 85%;
    display: block;
+   text-align: center;
    /* align-items: center;
    justify-content: center;
    flex-direction: column; */
