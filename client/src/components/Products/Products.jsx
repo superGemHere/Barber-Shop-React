@@ -1,33 +1,27 @@
 import './products.css'
 
 import { useState, useEffect } from "react";
-import { Link, useNavigate} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import * as productService from '../../services/productService';
 
 export default function Products(){
 
     const [products, setProducts] = useState([]);
-    const navigate = useNavigate();
     useEffect( () => {
        
         productService.getAllProducts()
     .then((result) => {
         setProducts(result)
-        // console.log(result)
         })
     
     }, []);
        
-    
     const isEmpty = products.length == 0 ? true : false;
-
-    // console.log(isEmpty)
 
     return(
         <main className="products">
         <div className="productsParentContainer">
-            {/* <h2 id="productsHeading">Products</h2> */}
             <div className="productChildContainer">
                 {!isEmpty && products.map(currentProduct => {
                     return(
