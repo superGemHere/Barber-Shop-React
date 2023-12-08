@@ -16,6 +16,8 @@ export const AuthProvider = ({
     
     const navigate = useNavigate();
     const [auth, setAuth] = usePersistedState('auth', {});
+    const [loginSucces, setLoginSucces] = useState(false);
+    const [registerSuccess, setRegisterSucces] = useState(false);
     const [loginErr, setLoginErr] = useState('');
     const [registerErr, setRegisterErr] = useState('');
   
@@ -35,12 +37,18 @@ export const AuthProvider = ({
         
         if(result.status == 403){
           throw result;
+        }else{
+         setLoginSucces(true);
+         setTimeout(() => {
+
+           setAuth(result);
+           localStorage.setItem('accessToken', result.accessToken)
+          navigate(Path.Home);
+         }, 2000);
         }
     
-        setAuth(result);
-        localStorage.setItem('accessToken', result.accessToken)
     
-        navigate(Path.Home)
+        // navigate(Path.Home)
 
       }catch(err){
         setLoginErr(err.message);
@@ -94,12 +102,16 @@ export const AuthProvider = ({
         
         if(result.status == 403){
           throw result;
+        }else{
+          setRegisterSucces(true);
+          setTimeout(() => {
+ 
+            setAuth(result);
+            localStorage.setItem('accessToken', result.accessToken)
+           navigate(Path.Home);
+          }, 2000);
         }
         
-        setAuth(result)
-        localStorage.setItem('accessToken', result.accessToken)
-    
-        navigate(Path.Home)
       } catch (err) {
         setRegisterErr(err.message);
         setTimeout(()=> {
@@ -130,6 +142,10 @@ export const AuthProvider = ({
       isAdmin: isAdmin,
       loginErr: loginErr,
       registerErr: registerErr,
+      loginSucces: loginSucces,
+      setLoginSucces: setLoginSucces,
+      registerSuccess: registerSuccess,
+      setRegisterSucces: setRegisterSucces
     }
     
     
