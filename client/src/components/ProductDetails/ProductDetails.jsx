@@ -1,7 +1,7 @@
 import './productDetails.css'
 
 import { useContext, useEffect, useState } from 'react';
-import {Link, useParams, useNavigate} from 'react-router-dom';
+import { useParams, useNavigate} from 'react-router-dom';
 
 
 import * as productService from '../../services/productService';
@@ -9,7 +9,7 @@ import AuthContext from '../../contexts/authContext';
 
 
 export default function ProductDetails(){
-    const {userId, isAdmin} = useContext(AuthContext)
+    const { isAdmin} = useContext(AuthContext)
     const [product, setProduct] = useState({});
     const {productId} = useParams();
     const navigate = useNavigate();
@@ -27,11 +27,6 @@ export default function ProductDetails(){
             navigate('/products');
         }
     }
-
-    const isOwner = product._ownerId === userId;
-
-
-
 
     return(
         <main className='productDetails'>
