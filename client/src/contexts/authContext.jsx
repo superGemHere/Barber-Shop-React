@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import * as authService from '../services/authService.js'
+import * as validate from '../utils/validate.js'
 import Path from "../paths";
 import usePersistedState from "../hooks/userPersistedState.js";
 
@@ -24,15 +25,7 @@ export const AuthProvider = ({
   
     const loginSubmitHandler = async(values) => {
       try{
-        
-        if(values.email === ''){
-          throw new Error('Email field cannot be empty');
-        }
-
-        if(values.password === ''){
-          throw new Error('Password field cannot be empty');
-        }
-        
+        validate.login(values);
         const result = await authService.login(values.email, values.password);
         
         if(result.status == 403){
@@ -63,38 +56,7 @@ export const AuthProvider = ({
     const registerSubmitHandler = async (values) =>{
 
       try {
-        if(values.firstName === ''){
-          throw new Error('First name field cannot be empty');
-        }
-
-        if(values.lastName === ''){
-          throw new Error('Last name field cannot be empty');
-        }
-
-        if(values.email === ''){
-          throw new Error('Email field cannot be empty');
-        }
-
-        if(!values.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){
-          throw new Error('Email is not valid');
-        }
-
-        if(values.password === ''){
-          throw new Error('Password field cannot be empty');
-        }
-        if(values.password.length < 5){
-          throw new Error('Password length must be at least 5 chars long');
-        }
-
-        if(values.reeatPassword === ''){
-          throw new Error('You must repeat the password');
-        }
-
-        if(values.repeatPassword !== values.password){
-          throw new Error('Passwords mismatch!');
-        }
-        
-        
+        validate.register(values);
         
         let username = `${values.firstName} ${values.lastName}`
         
