@@ -21,7 +21,8 @@ export default function GalleryDetails(){
 
     useEffect(() => {
         postService.getOnePhotos(photoId)
-        .then(result => setPhoto(result));
+        .then(result => setPhoto(result))
+        .catch(() => navigate('/404'))
 
         commentService.getAll(photoId)
         .then(setComments);
