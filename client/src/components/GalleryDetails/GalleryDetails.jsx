@@ -64,7 +64,11 @@ export default function GalleryDetails(){
     return(
         <>
         <main className="galleryDetails">
-                    
+        <div>
+     <div class="wave"></div>
+     <div class="wave"></div>
+     <div class="wave"></div>
+  </div>
                     <div className="photoSection">
                         <div className='imagePlusOwnerButton'>
                             <img className='detailsImage' src={photo.imageUrl} alt={`${photo.ownerName}'s photo`} />    
