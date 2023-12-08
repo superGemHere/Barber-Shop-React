@@ -10,7 +10,6 @@
     overflow-y: auto;
     overflow-x: hidden;
     color: #fff;
-    /* background-color: rgb(0, 0, 0); */
     background-attachment: fixed;
     background-position: sticky;
     background-size: cover;
@@ -125,6 +124,7 @@
     width: 30%;
     display: inline-block;
     margin-top: 2rem;
+    overflow-wrap: break-word;
     filter: grayscale(100%);
   }
   .item .polaroid:before {
