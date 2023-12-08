@@ -23,7 +23,6 @@ export default function Profile(){
     }, [])
 
     const isUploaded = userPhotos.length > 0;
-    console.log(isUploaded)
 
     return(
         <main className='profile'>
