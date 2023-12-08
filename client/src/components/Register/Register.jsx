@@ -1,6 +1,6 @@
 import './register.css'
 
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import AuthContext from '../../contexts/authContext';
 import useForm from '../../hooks/useForm';
 import { Link } from 'react-router-dom';
@@ -16,7 +16,7 @@ const RegisterFormKeys = {
 
 
 export default function Register(){
-  const {registerSubmitHandler, registerErr} = useContext(AuthContext);
+  const {registerSubmitHandler, registerErr, registerSuccess,setRegisterSucces} = useContext(AuthContext);
   const {values, onChange, onSubmit} = useForm(registerSubmitHandler, {
     [RegisterFormKeys.FirstName]: '',
     [RegisterFormKeys.LastName]: '',
@@ -24,6 +24,10 @@ export default function Register(){
     [RegisterFormKeys.Password]: '',
     [RegisterFormKeys.RepeatPassword]: '',
   })
+
+  useEffect(() => {
+    setRegisterSucces(false)
+  }, [])
 
     return (
 
@@ -35,6 +39,12 @@ export default function Register(){
           </div>
           }
         <div className="register-container">
+          {registerSuccess &&
+            <div className="success-animation1">
+              <svg className="checkmark1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle className="checkmark__circle1" cx="26" cy="26" r="25" fill="none" /><path className="checkmark__check1" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" /></svg>
+            </div>
+          }
+          {!registerSuccess &&
           <form className="register-form" method="POST" onSubmit={onSubmit}>
             <label htmlFor="firstName">First Name</label>
             <input
@@ -80,6 +90,7 @@ export default function Register(){
               <Link to={'/login'} id="SignIn"> Sign In</Link>
             </div>
           </form>
+          }
         </div>
       </main>
 
