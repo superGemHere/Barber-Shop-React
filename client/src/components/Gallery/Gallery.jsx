@@ -24,6 +24,11 @@ export default function Gallery(){
     return(
         
         <main className="gallery">
+            <div>
+     <div className="wave"></div>
+     <div className="wave"></div>
+     <div className="wave"></div>
+  </div>
             {/* <h1>Compass Gallery</h1> */}
             <div className="galleryContainer">
             {!isEmpty && photos.map(currentPhoto => {
