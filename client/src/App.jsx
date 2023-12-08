@@ -41,6 +41,7 @@ function App() {
     <Header />
     <Routes>
 			<Route path={Path.Home} element={<Home />} />
+							{/* Services */}
 			<Route path='/services' element={<Services />} />
 			<Route path='/services/beard-trimming' element={<BeardTrimming />} />
 			<Route path='/services/haircuts' element={<Haircut />} />
