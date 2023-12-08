@@ -15,8 +15,6 @@ const PhotoFormKeys = {
 export default function AddPhoto(){
     const [addPhotoErr, setAddPhotoErr] = useState('');
     const navigate = useNavigate();
-    // const asd = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
-    // console.log(asd.length)
 
     const addPhotoHandler = async(values) => {
         try {
@@ -34,8 +32,6 @@ export default function AddPhoto(){
                 throw new Error('Caption cannot be longer than  150 characters');
             }
            
-
-
             let userSession = JSON.parse(localStorage.getItem('auth'));
             const result = await postService.addPhoto(values.imageUrl, values.addCaption, userSession.username);
             navigate('/gallery')
