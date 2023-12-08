@@ -749,7 +749,7 @@
         };
     };
 
-    var require$$0 = "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>SUPS Admin Panel</title>\r\n    <style>\r\n        * {\r\n            padding: 0;\r\n            margin: 0;\r\n        }\r\n\r\n        body {\r\n            padding: 32px;\r\n            font-size: 16px;\r\n        }\r\n\r\n        .layout::after {\r\n            content: '';\r\n            clear: both;\r\n            display: table;\r\n        }\r\n\r\n        .col {\r\n            display: block;\r\n            float: left;\r\n        }\r\n\r\n        p {\r\n            padding: 8px 16px;\r\n        }\r\n\r\n        table {\r\n            border-collapse: collapse;\r\n        }\r\n\r\n        caption {\r\n            font-size: 120%;\r\n            text-align: left;\r\n            padding: 4px 8px;\r\n            font-weight: bold;\r\n            background-color: #ddd;\r\n        }\r\n\r\n        table, tr, th, td {\r\n            border: 1px solid #ddd;\r\n        }\r\n\r\n        th, td {\r\n            padding: 4px 8px;\r\n        }\r\n\r\n        ul {\r\n            list-style: none;\r\n        }\r\n\r\n        .collection-list a {\r\n            display: block;\r\n            width: 120px;\r\n            padding: 4px 8px;\r\n            text-decoration: none;\r\n            color: black;\r\n            background-color: #ccc;\r\n        }\r\n        .collection-list a:hover {\r\n            background-color: #ddd;\r\n        }\r\n        .collection-list a:visited {\r\n            color: black;\r\n        }\r\n    </style>\r\n    <script type=\"module\">\nimport { html, render } from 'https://unpkg.com/lit-html@1.3.0?module';\nimport { until } from 'https://unpkg.com/lit-html@1.3.0/directives/until?module';\n\nconst api = {\r\n    async get(url) {\r\n        return json(url);\r\n    },\r\n    async post(url, body) {\r\n        return json(url, {\r\n            method: 'POST',\r\n            headers: { 'Content-Type': 'application/json' },\r\n            body: JSON.stringify(body)\r\n        });\r\n    }\r\n};\r\n\r\nasync function json(url, options) {\r\n    return await (await fetch('/' + url, options)).json();\r\n}\r\n\r\nasync function getCollections() {\r\n    return api.get('data');\r\n}\r\n\r\nasync function getRecords(collection) {\r\n    return api.get('data/' + collection);\r\n}\r\n\r\nasync function getThrottling() {\r\n    return api.get('util/throttle');\r\n}\r\n\r\nasync function setThrottling(throttle) {\r\n    return api.post('util', { throttle });\r\n}\n\nasync function collectionList(onSelect) {\r\n    const collections = await getCollections();\r\n\r\n    return html`\r\n    <ul class=\"collection-list\">\r\n        ${collections.map(collectionLi)}\r\n    </ul>`;\r\n\r\n    function collectionLi(name) {\r\n        return html`<li><a href=\"javascript:void(0)\" @click=${(ev) => onSelect(ev, name)}>${name}</a></li>`;\r\n    }\r\n}\n\nasync function recordTable(collectionName) {\r\n    const records = await getRecords(collectionName);\r\n    const layout = getLayout(records);\r\n\r\n    return html`\r\n    <table>\r\n        <caption>${collectionName}</caption>\r\n        <thead>\r\n            <tr>${layout.map(f => html`<th>${f}</th>`)}</tr>\r\n        </thead>\r\n        <tbody>\r\n            ${records.map(r => recordRow(r, layout))}\r\n        </tbody>\r\n    </table>`;\r\n}\r\n\r\nfunction getLayout(records) {\r\n    const result = new Set(['_id']);\r\n    records.forEach(r => Object.keys(r).forEach(k => result.add(k)));\r\n\r\n    return [...result.keys()];\r\n}\r\n\r\nfunction recordRow(record, layout) {\r\n    return html`\r\n    <tr>\r\n        ${layout.map(f => html`<td>${JSON.stringify(record[f]) || html`<span>(missing)</span>`}</td>`)}\r\n    </tr>`;\r\n}\n\nasync function throttlePanel(display) {\r\n    const active = await getThrottling();\r\n\r\n    return html`\r\n    <p>\r\n        Request throttling: </span>${active}</span>\r\n        <button @click=${(ev) => set(ev, true)}>Enable</button>\r\n        <button @click=${(ev) => set(ev, false)}>Disable</button>\r\n    </p>`;\r\n\r\n    async function set(ev, state) {\r\n        ev.target.disabled = true;\r\n        await setThrottling(state);\r\n        display();\r\n    }\r\n}\n\n//import page from '//unpkg.com/page/page.mjs';\r\n\r\n\r\nfunction start() {\r\n    const main = document.querySelector('main');\r\n    editor(main);\r\n}\r\n\r\nasync function editor(main) {\r\n    let list = html`<div class=\"col\">Loading&hellip;</div>`;\r\n    let viewer = html`<div class=\"col\">\r\n    <p>Select collection to view records</p>\r\n</div>`;\r\n    display();\r\n\r\n    list = html`<div class=\"col\">${await collectionList(onSelect)}</div>`;\r\n    display();\r\n\r\n    async function display() {\r\n        render(html`\r\n        <section class=\"layout\">\r\n            ${until(throttlePanel(display), html`<p>Loading</p>`)}\r\n        </section>\r\n        <section class=\"layout\">\r\n            ${list}\r\n            ${viewer}\r\n        </section>`, main);\r\n    }\r\n\r\n    async function onSelect(ev, name) {\r\n        ev.preventDefault();\r\n        viewer = html`<div class=\"col\">${await recordTable(name)}</div>`;\r\n        display();\r\n    }\r\n}\r\n\r\nstart();\n\n</script>\r\n</head>\r\n<body>\r\n    <main>\r\n        Loading&hellip;\r\n    </main>\r\n</body>\r\n</html>";
+    var require$$0 = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>SUPS Admin Panel</title>\n    <style>\n        * {\n            padding: 0;\n            margin: 0;\n        }\n\n        body {\n            padding: 32px;\n            font-size: 16px;\n        }\n\n        .layout::after {\n            content: '';\n            clear: both;\n            display: table;\n        }\n\n        .col {\n            display: block;\n            float: left;\n        }\n\n        p {\n            padding: 8px 16px;\n        }\n\n        table {\n            border-collapse: collapse;\n        }\n\n        caption {\n            font-size: 120%;\n            text-align: left;\n            padding: 4px 8px;\n            font-weight: bold;\n            background-color: #ddd;\n        }\n\n        table, tr, th, td {\n            border: 1px solid #ddd;\n        }\n\n        th, td {\n            padding: 4px 8px;\n        }\n\n        ul {\n            list-style: none;\n        }\n\n        .collection-list a {\n            display: block;\n            width: 120px;\n            padding: 4px 8px;\n            text-decoration: none;\n            color: black;\n            background-color: #ccc;\n        }\n        .collection-list a:hover {\n            background-color: #ddd;\n        }\n        .collection-list a:visited {\n            color: black;\n        }\n    </style>\n    <script type=\"module\">\nimport { html, render } from 'https://unpkg.com/lit-html@1.3.0?module';\nimport { until } from 'https://unpkg.com/lit-html@1.3.0/directives/until?module';\n\nconst api = {\n    async get(url) {\n        return json(url);\n    },\n    async post(url, body) {\n        return json(url, {\n            method: 'POST',\n            headers: { 'Content-Type': 'application/json' },\n            body: JSON.stringify(body)\n        });\n    }\n};\n\nasync function json(url, options) {\n    return await (await fetch('/' + url, options)).json();\n}\n\nasync function getCollections() {\n    return api.get('data');\n}\n\nasync function getRecords(collection) {\n    return api.get('data/' + collection);\n}\n\nasync function getThrottling() {\n    return api.get('util/throttle');\n}\n\nasync function setThrottling(throttle) {\n    return api.post('util', { throttle });\n}\n\nasync function collectionList(onSelect) {\n    const collections = await getCollections();\n\n    return html`\n    <ul class=\"collection-list\">\n        ${collections.map(collectionLi)}\n    </ul>`;\n\n    function collectionLi(name) {\n        return html`<li><a href=\"javascript:void(0)\" @click=${(ev) => onSelect(ev, name)}>${name}</a></li>`;\n    }\n}\n\nasync function recordTable(collectionName) {\n    const records = await getRecords(collectionName);\n    const layout = getLayout(records);\n\n    return html`\n    <table>\n        <caption>${collectionName}</caption>\n        <thead>\n            <tr>${layout.map(f => html`<th>${f}</th>`)}</tr>\n        </thead>\n        <tbody>\n            ${records.map(r => recordRow(r, layout))}\n        </tbody>\n    </table>`;\n}\n\nfunction getLayout(records) {\n    const result = new Set(['_id']);\n    records.forEach(r => Object.keys(r).forEach(k => result.add(k)));\n\n    return [...result.keys()];\n}\n\nfunction recordRow(record, layout) {\n    return html`\n    <tr>\n        ${layout.map(f => html`<td>${JSON.stringify(record[f]) || html`<span>(missing)</span>`}</td>`)}\n    </tr>`;\n}\n\nasync function throttlePanel(display) {\n    const active = await getThrottling();\n\n    return html`\n    <p>\n        Request throttling: </span>${active}</span>\n        <button @click=${(ev) => set(ev, true)}>Enable</button>\n        <button @click=${(ev) => set(ev, false)}>Disable</button>\n    </p>`;\n\n    async function set(ev, state) {\n        ev.target.disabled = true;\n        await setThrottling(state);\n        display();\n    }\n}\n\n//import page from '//unpkg.com/page/page.mjs';\n\n\nfunction start() {\n    const main = document.querySelector('main');\n    editor(main);\n}\n\nasync function editor(main) {\n    let list = html`<div class=\"col\">Loading&hellip;</div>`;\n    let viewer = html`<div class=\"col\">\n    <p>Select collection to view records</p>\n</div>`;\n    display();\n\n    list = html`<div class=\"col\">${await collectionList(onSelect)}</div>`;\n    display();\n\n    async function display() {\n        render(html`\n        <section class=\"layout\">\n            ${until(throttlePanel(display), html`<p>Loading</p>`)}\n        </section>\n        <section class=\"layout\">\n            ${list}\n            ${viewer}\n        </section>`, main);\n    }\n\n    async function onSelect(ev, name) {\n        ev.preventDefault();\n        viewer = html`<div class=\"col\">${await recordTable(name)}</div>`;\n        display();\n    }\n}\n\nstart();\n\n</script>\n</head>\n<body>\n    <main>\n        Loading&hellip;\n    </main>\n</body>\n</html>";
 
     const mode = process.argv[2] == '-dev' ? 'dev' : 'prod';
 
@@ -896,7 +896,9 @@
                 id = uuid$2();
             }
 
-            record._createdOn = Date.now();
+            const currentDate = new Date().toLocaleDateString('en-GB');
+
+            record._createdOn = currentDate;
             targetCollection.set(id, record);
             return Object.assign(deepCopy(record), { _id: id });
         }
@@ -1320,18 +1322,24 @@
     var protectedData = {
     	users: {
     		"35c62d76-8152-4626-8712-eeb96381bea8": {
+    			firstName: "Peter",
+    			lastName: "Smith",
     			email: "peter@abv.bg",
-    			username: "Peter",
+    			username: "Peter Smith",
     			hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
     		},
     		"847ec027-f659-4086-8032-5173e2f9c93a": {
+    			firstName: "George",
+    			lastName: "Junnior",
     			email: "george@abv.bg",
-    			username: "George",
+    			username: "George Junnior",
     			hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
     		},
     		"60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
+    			firstName: "Admin",
+    			lastName: "Admin",
     			email: "admin@abv.bg",
-    			username: "Admin",
+    			username: "Admin Admin",
     			hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
     		}
     	},
@@ -1339,6 +1347,96 @@
     	}
     };
     var seedData = {
+        products:{
+            "23006aef-66c4-4328-be5b-dd8246cf8d83" : {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                productName: "Strong Pomade",
+                productBrand: "Uppercut Deluxe",
+                productImageUrl: "https://i00.eu/img/711/1024x1024/3hgk5n1k/16036.jpg",
+                productDescription: "Very good pomade with smell of blueberry",
+                productPrice: "5.00",
+                _createdOn: "02/12/2023",
+                _id: "23006aef-66c4-4328-be5b-dd8246cf8d83"
+            },
+            "659e04b3-f25b-464b-b23b-8864398a8f8f" : {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                productName: "Matte Pomade",
+                productBrand: "Uppercut Deluxe",
+                productImageUrl: "https://i00.eu/img/711/1024x1024/8co3tpav/16042.jpg",
+                productDescription: "Beat that uppercut to your enemies with style.",
+                productPrice: "7.99",
+                _createdOn: "02/12/2023",
+                _id: "659e04b3-f25b-464b-b23b-8864398a8f8f"
+            },
+            "edd5c235-c785-4ce4-86d2-c42fb974a9b7" :{
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                productName: "FYL Pomade",
+                productBrand: "Fix Your Lid",
+                productImageUrl: "https://fixyourlid.com/cdn/shop/products/Hair_Pomade_3.png?v=1676995114",
+                productDescription: "Stay cool, slay with style.",
+                productPrice: "8.59",
+                _createdOn: "02/12/2023",
+                _id: "edd5c235-c785-4ce4-86d2-c42fb974a9b7"
+            },
+            "a7a55830-468a-42ca-912d-6136e0b727c6" : {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                productName: "Beard Oil",
+                productBrand: "Beardo",
+                productImageUrl: "https://beardo.in/cdn/shop/products/7192-1.jpg?v=1682082965",
+                productDescription: "Playboy's secret.",
+                productPrice: "25.59",
+                _createdOn: "02/12/2023",
+                _id: "a7a55830-468a-42ca-912d-6136e0b727c6"
+            },
+            "f67c3bc1-2fd7-4c8a-a471-10a79d766c00" : {
+                _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                productName: "After Shave",
+                productBrand: "Proraso",
+                productImageUrl: "https://m.media-amazon.com/images/I/71DNKjC51VL._AC_UF1000,1000_QL80_.jpg",
+                productDescription: "This what makes even fresher than the shaving.",
+                productPrice: "12",
+                _createdOn: "02/12/2023",
+                _id: "f67c3bc1-2fd7-4c8a-a471-10a79d766c00"
+            }
+            
+        },
+    	photos: {
+    		"a7771586-b539-487f-853d-edeb25b5b575":{
+    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+    			imageUrl: "https://www.beyoung.in/blog/wp-content/uploads/2020/04/general-min-1-853x1024.jpg",
+    			caption: "Such a good haircut.",
+    			ownerName: "Peter Smith",
+    			_createdOn: "01/12/2023",
+    			_id: "a7771586-b539-487f-853d-edeb25b5b575"
+    		},
+    		"1b5fbab3-3d78-4cc7-b629-509134c868a4":{
+    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+    			imageUrl: "https://www.beyoung.in/blog/wp-content/uploads/2020/04/Short-Haircuts-for-Men-min-853x1024.jpg",
+    			caption: "The barber has hands of gold.",
+    			ownerName: "Peter Smith",
+    			_createdOn: "02/12/2023",
+    			_id: "1b5fbab3-3d78-4cc7-b629-509134c868a4"
+    		},
+    		"f05fa00a-6bff-46bc-aff4-9ed179377564":{
+    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+    			imageUrl: "https://i.pinimg.com/736x/6b/04/c5/6b04c567ad72f96a65f43dfd5274c0e9.jpg",
+    			caption: "Really good haircut.",
+    			ownerName: "Peter Smith",
+    			_createdOn: "03/12/2023",
+    			_id: "f05fa00a-6bff-46bc-aff4-9ed179377564"
+    		},
+    		"3163772a-b627-464c-b3c7-57d0e85fef5a":{
+    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+    			imageUrl: "https://images.unsplash.com/photo-1630827020718-3433092696e7?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWVucyUyMGhhaXJjdXR8ZW58MHx8MHx8fDA%3D",
+    			caption: "Great Haircut.",
+    			ownerName: "Peter Smith",
+                _createdOn: "06/12/2023",
+    			_id: "3163772a-b627-464c-b3c7-57d0e85fef5a"
+    		}
+        },
+        photoComments: {
+
+        },
     	recipes: {
     		"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
@@ -1687,10 +1785,10 @@
     console.log(`Server started on port ${port}. You can make requests to http://localhost:${port}/`);
     console.log(`Admin panel located at http://localhost:${port}/admin`);
 
-    var softuniPracticeServer = {
+    var softuniPracticeServerMaster = {
 
     };
 
-    return softuniPracticeServer;
+    return softuniPracticeServerMaster;
 
 })));
