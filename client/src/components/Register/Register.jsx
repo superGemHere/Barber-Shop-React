@@ -31,7 +31,7 @@ export default function Register(){
 
           {registerErr && 
           <div className="alert1">
-            <strong>Danger!</strong> {registerErr}
+            <strong>Attention!</strong> {registerErr}
           </div>
           }
         <div className="register-container">
