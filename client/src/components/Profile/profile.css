@@ -35,9 +35,12 @@ font-weight: bolder;
 }
 
 .userPosts{
+    min-width: 80%;
     max-width: 80%;
     height: 250px;
     display:inline-flex;
+    align-items: center;
+    justify-content: center;
     overflow-x: auto;
     overflow-y: none;
     background: linear-gradient(
