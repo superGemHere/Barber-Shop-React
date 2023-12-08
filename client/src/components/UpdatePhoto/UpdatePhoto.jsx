@@ -13,11 +13,7 @@ const PhotoFormKeys = {
     AddCaption: 'caption'
 }
 
-
-
-
 export default function UpdatePhoto(){
-    const { userId } = useContext(AuthContext);
     const navigate = useNavigate();
     const {photoId} = useParams();
     const [addPhotoErr, setAddPhotoErr] = useState('');
