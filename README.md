@@ -6,6 +6,7 @@ Welcome to the Barber Shop React repository! This project is a web application b
 
 - [Introduction](#introduction)
 - [Usage](#usage)
+- [Overview](#overview)
 - [Features](#features)
 - [Getting Started](#getting-started)
 - [How to run the Application](#how-to-run)
@@ -24,6 +25,17 @@ This project is aimed at providing a modern and user-friendly UI/UX.
 ## Usage
 
 This project is a React application that It's purpose is to meet the criteriа of the SoftUni React Final Exam.
+
+## Overview
+
+The project has dynamic navigation which depends on whether you are logged-in user or a guest.
+
+As a guest you can interact with the website but with some restrictions such as you can't access profile page or be able to create any records or posts.
+
+Logged-in users can interact freely with the website but still have some restrictions such as Admin Panel and admin functionalities, they have profile page where the count of their post is displayed together with his username and email and every photo they posted to the catalog is listed in.
+
+Admin has all the functionality which normal users do, with only one difference than their permissions and that permission is to add products from the admin panel and delete them from the details of the product. 
+
 
 ## Features
 - **Dynamic Navigation:** Navigation link depends on authentication.
