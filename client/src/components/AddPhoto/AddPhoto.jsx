@@ -1,11 +1,12 @@
 import './addPhoto.css'
 
-import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import useForm from '../../hooks/useForm';
 
-import * as postService from '../../services/postService'
-import { useState } from 'react';
+import * as postService from '../../services/postService';
+import * as validate from '../../utils/validate'
 
 const PhotoFormKeys = {
     ImageUrl: 'imageUrl',
@@ -18,22 +19,9 @@ export default function AddPhoto(){
 
     const addPhotoHandler = async(values) => {
         try {
-
-            if(values.imageUrl== '' || values.addCaption == ''){
-                throw new Error('All fields are required');
-            }
-            if(!values.imageUrl.match(/^(http|https):\/\//)){
-                throw new Error(`Image's url must start with "http" or "https"`);
-            }
-            if(values.addCaption.length < 5){
-                throw new Error('Caption must be at least 5 charaters long');
-            }
-            if(values.addCaption.length > 150){
-                throw new Error('Caption cannot be longer than  150 characters');
-            }
-           
+            validate.postAdd(values);
             let userSession = JSON.parse(localStorage.getItem('auth'));
-            const result = await postService.addPhoto(values.imageUrl, values.addCaption, userSession.username);
+            await postService.addPhoto(values.imageUrl, values.addCaption, userSession.username);
             navigate('/gallery')
         } catch (err) {
             setAddPhotoErr(err.message);
