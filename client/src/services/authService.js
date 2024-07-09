@@ -1,9 +1,9 @@
 import * as request from "../lib/request";
 
-const baseUrl = "http://localhost:3030/users";
+const baseUrl = "https://api-4cmncgehba-ew.a.run.app";
 
 export const login = async (email, password) => {
-  const result = await request.post(`${baseUrl}/login`, {
+  const result = await request.post(`${baseUrl}/users/login`, {
     email,
     password
   });
