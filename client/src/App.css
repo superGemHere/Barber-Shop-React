@@ -10,3 +10,42 @@ body {
   font-size: 30px;
   
 }
+
+/* Mobile First Responsive Design */
+@media (max-width: 768px) {
+  html,
+  body {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  html,
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Ensure all containers are responsive */
+* {
+  box-sizing: border-box;
+}
+
+/* Common responsive utility classes */
+.mobile-hidden {
+  display: block;
+}
+
+.mobile-visible {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-hidden {
+    display: none;
+  }
+  
+  .mobile-visible {
+    display: block;
+  }
+}

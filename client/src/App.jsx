@@ -24,6 +24,7 @@ import UpdatePhoto from './components/UpdatePhoto/UpdatePhoto.jsx';
 import Profile from './components/Profile/Profile.jsx';
 import Admin from './components/Admin/Admin.jsx';
 import ProductDetails from './components/ProductDetails/ProductDetails.jsx';
+import Wishlist from './components/Wishlist/Wishlist.jsx';
 import AuthGuard from './components/Guards/AuthGuard.jsx';
 import LogRegGuard from './components/Guards/LogRegGuard.jsx';
 import AdminGuard from './components/Guards/AdminGuard.jsx';
@@ -54,6 +55,7 @@ function App() {
 							{/* Products */}
 			<Route path='/products' element={<Products />} />
 			<Route path='/products/details/:productId' element={<ProductDetails />} />
+			<Route path='/wishlist' element={<Wishlist />} />
 							{/* Photo */}
 			<Route path='/gallery' element={<Gallery />} />
 			<Route path='/gallery/details/:photoId' element={<GalleryDetails />} />
