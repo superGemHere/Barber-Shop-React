@@ -1,90 +1,348 @@
-.services{
-    width: 100%;
-    height: 93vh;
-    display: flex;
-    
-    justify-content: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(12, 10, 10, 0.8)),
-      url(https://wallpapers.com/images/hd/barber-shop-background-c8pq8le29lkcb64m.jpg);
-    background-size: 100%;
-    background-position: center;
-    background-attachment: scroll;
-  }
-  
-  .servicesParentContainer{
-    width: 100%;
-    height: 93vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    
-    
-  }
-  
-  
-  .servicesChildContainer{
-    width: 85%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    top: 0px;
-    
-  }
-  
-  .serviceCard{
-    width: 350px;
-    height: 400px;
-    display: flex;
-    text-shadow: 5px 5px #131313;
-    font-family: 'Agbalumo';
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 20px;
-    cursor: pointer;
-    
-    
-    border-radius: 10px;
-    transition: all .4s ease;
-    -webkit-transition: all .4s ease;
-    
-  }
-  
-  .serviceCard:hover {
-    scale: 1.05;
-    border: 6px solid rgb(70, 180, 194);;
-    border-style:solid;
-  
-  }
-  .serviceCard:hover > .cardInsights{
-    display: block;
-  }
-  .serviceCard:hover > h2{
-    display: none;
-  }
-  
-  .cardInsights{
-    display: none;
+.services {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  position: relative;
+}
+
+.services::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(https://wallpapers.com/images/hd/barber-shop-background-c8pq8le29lkcb64m.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.05;
+  z-index: 1;
+}
+
+.servicesParentContainer {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.services-title {
+  font-family: "Playfair Display", serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.services-title::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-color), rgba(212, 175, 55, 0.3));
+  border-radius: 2px;
+}
+
+.services-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.servicesChildContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.serviceCard {
+  position: relative;
+  height: 450px;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-lg);
+  background: white;
+}
+
+.serviceCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+.serviceCard:hover::before {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.serviceCard:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+}
+
+.service-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  z-index: 3;
+  color: white;
+}
+
+.service-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(212, 175, 55, 0.2);
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.serviceCard:hover .service-icon {
+  background: var(--accent-color);
+  transform: scale(1.1);
+}
+
+.service-icon svg {
+  width: 40px;
+  height: 40px;
+  fill: var(--accent-color);
+  transition: fill 0.3s ease;
+}
+
+.serviceCard:hover .service-icon svg {
+  fill: white;
+}
+
+.service-title {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.service-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  max-width: 280px;
+  margin-bottom: 1.5rem;
+}
+
+.serviceCard:hover .service-description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent-color);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--radius-lg);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+
+.serviceCard:hover .service-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-cta:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* Background images for each service */
+.haircuts {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+    url(https://i.pinimg.com/originals/81/e0/6c/81e06c5e204ff163a552a21c211e5654.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.beardTrimming {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+    url(https://www.truefittandhill.co.uk/cdn/shop/products/shave_550x.jpg?v=1579797350);
+  background-size: cover;
+  background-position: center;
+}
+
+.wax {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+    url(/placeholder.svg?height=400&width=400&query=professional%20hair%20styling%20wax%20products);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .services {
+    padding: 3rem 0;
   }
 
-  .beardTrimming{
-    background-image: linear-gradient(rgba(32, 32, 32, 0.5), rgba(26, 25, 25, 0.5)),
-                url(https://www.truefittandhill.co.uk/cdn/shop/products/shave_550x.jpg?v=1579797350);
-    background-size: cover;
-    background-position: center;
+  .servicesParentContainer {
+    padding: 0 1.5rem;
   }
-  .haircuts{
-    background-image: linear-gradient(rgba(32, 32, 32, 0.5), rgba(26, 25, 25, 0.5)),
-                url(https://i.pinimg.com/originals/81/e0/6c/81e06c5e204ff163a552a21c211e5654.jpg);
-    background-size: cover;
-    background-position: center;
+
+  .services-title {
+    font-size: 3rem;
   }
-  .wax{
-    background-image: linear-gradient(rgba(32, 32, 32, 0.5), rgba(26, 25, 25, 0.5)),
-                url(data:image/png;base64,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);
-    background-size: cover;
-    background-position: center;
+
+  .servicesChildContainer {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
   }
-  
+
+  .serviceCard {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services {
+    min-height: calc(100vh - 70px);
+    padding: 2rem 0;
+  }
+
+  .servicesParentContainer {
+    padding: 0 1rem;
+  }
+
+  .services-header {
+    margin-bottom: 3rem;
+  }
+
+  .services-title {
+    font-size: 2.5rem;
+  }
+
+  .services-subtitle {
+    font-size: 1rem;
+  }
+
+  .servicesChildContainer {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .serviceCard {
+    height: 350px;
+  }
+
+  .service-title {
+    font-size: 1.75rem;
+  }
+
+  .service-description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .services {
+    min-height: calc(100vh - 60px);
+    padding: 1.5rem 0;
+  }
+
+  .servicesParentContainer {
+    padding: 0 0.75rem;
+  }
+
+  .services-title {
+    font-size: 2rem;
+  }
+
+  .serviceCard {
+    height: 320px;
+  }
+
+  .service-content {
+    padding: 1.5rem;
+  }
+
+  .service-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+
+  .service-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .service-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-description {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-cta {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .serviceCard,
+  .service-description,
+  .service-cta,
+  .service-icon {
+    transition: none;
+  }
+
+  .serviceCard:hover {
+    transform: none;
+  }
+}
