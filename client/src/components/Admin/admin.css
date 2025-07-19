@@ -70,3 +70,80 @@
     color: black;
     background-color: white;
 }
+
+
+@media (max-width: 768px) {
+    .admin-main {
+        height: 92vh;
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .alert4 {
+        top: -15px;
+        padding: 15px;
+        font-size: 14px;
+    }
+    
+    .add-product,
+    .add-service {
+        width: 80%;
+        height: 400px;
+        margin: 10px 0;
+        border: 3px solid #ccc;
+        border-radius: 10px;
+    }
+    
+    .add-product-form {
+        padding: 20px;
+    }
+    
+    .add-product-form input {
+        font-size: 14px;
+        padding: 8px;
+        margin: 5px 0;
+        width: 100%;
+    }
+    
+    .addProductBtn {
+        width: 60%;
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-main {
+        height: 90vh;
+        padding: 10px;
+    }
+    
+    .alert4 {
+        top: -10px;
+        padding: 12px;
+        font-size: 12px;
+    }
+    
+    .add-product,
+    .add-service {
+        width: 95%;
+        height: 350px;
+        margin: 8px 0;
+    }
+    
+    .add-product-form {
+        padding: 15px;
+    }
+    
+    .add-product-form input {
+        font-size: 12px;
+        padding: 6px;
+        margin: 4px 0;
+    }
+    
+    .addProductBtn {
+        width: 80%;
+        padding: 8px;
+        font-size: 12px;
+    }
+}

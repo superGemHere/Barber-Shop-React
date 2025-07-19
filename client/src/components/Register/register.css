@@ -4,7 +4,7 @@
       url(https://wallpapers.com/images/hd/barber-shop-background-c8pq8le29lkcb64m.jpg);
     background-size: 100%;
     background-position: center;
-    /* background-attachment: scroll; */
+    
     height: 93vh;
     display: flex;
     align-items: center;
@@ -30,7 +30,7 @@
       url(https://kinneygroup.com/wp-content/uploads/2019/10/fw-bg-gradient-1024x576.png);
     background-size: 100%;
     background-position: center;
-    /* width: 20%; */
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -166,7 +166,7 @@
     cursor: pointer;
     display: inline-block;
     position: relative;
-    /* color: #0087ca; */
+    
   }
   #SignIn::after {
     background: none repeat scroll 0 0 transparent;
@@ -183,4 +183,96 @@
   #SignIn:hover:after {
     width: 100%;
     left: 0;
+  }
+
+  
+  @media (max-width: 768px) {
+    .register {
+      height: 92vh;
+      background-size: cover;
+      padding: 20px;
+    }
+    
+    .alert1 {
+      top: -50px;
+      padding: 15px;
+      font-size: 14px;
+    }
+    
+    .register-container {
+      width: 80%;
+      min-height: 350px;
+      padding: 20px;
+    }
+    
+    form label {
+      font-size: 20px;
+      margin: 8px 0;
+    }
+    
+    form input {
+      font-size: 18px;
+      padding: 8px;
+      margin: 8px 0;
+    }
+    
+    .submitBtn input {
+      width: 120px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    
+    .existingAccount {
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+    }
+    
+    .existingAccount #SignIn,
+    .existingAccount p {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .register {
+      height: 90vh;
+      padding: 10px;
+    }
+    
+    .register-container {
+      width: 95%;
+      min-height: 300px;
+      padding: 15px;
+    }
+    
+    form {
+      margin: 15px;
+    }
+    
+    form label {
+      font-size: 18px;
+      margin: 6px 0;
+    }
+    
+    form input {
+      font-size: 16px;
+      padding: 6px;
+      margin: 6px 0;
+    }
+    
+    .submitBtn input {
+      width: 100px;
+      padding: 8px;
+      font-size: 14px;
+    }
+    
+    .checkmark1 {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .success-animation {
+      margin: 100px auto;
+    }
   }

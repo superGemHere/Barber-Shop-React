@@ -198,3 +198,78 @@
     box-shadow: 0 1rem 3rem rgba(0,0,0,0.2);
     transition: all 0.35s;
   }
+
+  
+  @media (max-width: 768px) {
+    .gallery {
+      min-height: 92vh;
+      padding: 10px;
+    }
+    
+    .gallery > h1 {
+      font-size: 2.5em;
+      margin: 15px 0;
+    }
+    
+    .galleryContainer {
+      width: 100%;
+      margin: 10px;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .item {
+      width: 80%;
+      margin: 1rem 0;
+    }
+    
+    .polaroid {
+      padding: 0.5rem;
+    }
+    
+    .polaroid > img {
+      max-height: 400px;
+    }
+    
+    .caption {
+      font-size: 1.4rem;
+      line-height: 1.5em;
+    }
+    
+    
+    .item:nth-of-type(4n+1),
+    .item:nth-of-type(4n+2),
+    .item:nth-of-type(4n+3),
+    .item:nth-of-type(4n+4) {
+      transform: none;
+    }
+    
+    .item:hover {
+      transform: scale(1.02) !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .gallery > h1 {
+      font-size: 2em;
+      margin: 10px 0;
+    }
+    
+    .item {
+      width: 95%;
+      margin: 0.5rem 0;
+    }
+    
+    .polaroid {
+      padding: 0.3rem;
+    }
+    
+    .polaroid > img {
+      max-height: 300px;
+    }
+    
+    .caption {
+      font-size: 1.2rem;
+      line-height: 1.3em;
+    }
+  }

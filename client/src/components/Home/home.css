@@ -4,9 +4,9 @@
   margin: 0;
   padding: 0;
   height: 93vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
     url(https://wallpapers.com/images/hd/barber-shop-background-c8pq8le29lkcb64m.jpg);
-  background-size: 100%;
+  background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
@@ -23,8 +23,39 @@
   justify-content: center;
 }
 
+.intro {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(25, 25, 25, 0.85);
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
 .intro h1 {
   text-align: center;
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: 'Arial Black', Arial, sans-serif;
+}
+
+.intro h4 {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+  color: #e0e0e0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  font-style: italic;
 }
 
 .home-buttons{
@@ -44,22 +75,130 @@
 }
 
 .buttons{
-  border: 3px solid rgb(255, 2555, 255, 0.2);
+  border: 2px solid #d4af37;
   text-decoration: none;
-  width: 20%;
-  padding: 5px;
-  margin: 10px;
+  width: 200px;
+  padding: 16px 35px;
+  margin: 12px 20px;
   text-align: center;
-  color: #fff;
-  background-color: transparent;
-  transition: 2s;
-
-
+  color: #d4af37;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
 }
+
+.buttons::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.buttons:hover::before {
+  left: 100%;
+}
+
 .buttons:hover{
-  background-color: rgb(70, 180, 194);
+  background: #d4af37;
+  border-color: #d4af37;
+  color: #000;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
 }
 /* .buttons:hover::after{
   background-color: peachpuff;
   transition: 2s;
 } */
+
+
+@media (max-width: 870px) {
+  #home {
+    height: 92vh;
+    background-size: cover;
+    padding: 20px;
+  }
+  
+  .intro {
+    padding: 1.5rem;
+    border-radius: 15px;
+  }
+  
+  .intro h1 {
+    font-size: 3.2rem;
+    margin-bottom: 1.2rem;
+    letter-spacing: 2px;
+  }
+  
+  .intro h4 {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .home-button-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .buttons {
+    width: 240px;
+    padding: 14px 30px;
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .intro h4 {
+    font-size: 1rem;
+    margin-bottom: 1.8rem;
+  }
+  
+  .buttons {
+    width: 200px;
+    padding: 12px 20px;
+    font-size: 0.85rem;
+    margin: 6px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  #home {
+    height: 91vh;
+    padding: 10px;
+  }
+  
+  .intro h1 {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+    letter-spacing: 1px;
+  }
+  
+  .intro h4 {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .buttons {
+    width: 180px;
+    padding: 12px 18px;
+    font-size: 0.8rem;
+    margin: 6px 0;
+    letter-spacing: 0.5px;
+  }
+}

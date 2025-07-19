@@ -46,3 +46,55 @@
     background-color: #fff;
     font-weight: 700;
 }
+
+
+@media (max-width: 768px) {
+    .NotFound {
+        height: 92vh;
+        padding: 20px;
+    }
+    
+    .notFoundHeadings {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+    
+    .notFoundOptions {
+        width: 90%;
+    }
+    
+    .notFoundBtns {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .notFoundBtn {
+        padding: 8px 15px;
+        margin: 5px 0;
+        text-align: center;
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .NotFound {
+        height: 90vh;
+        padding: 10px;
+    }
+    
+    .notFoundHeadings {
+        font-size: 0.8rem;
+        margin-bottom: 15px;
+    }
+    
+    .notFoundOptions {
+        width: 100%;
+    }
+    
+    .notFoundBtn {
+        padding: 6px 12px;
+        margin: 4px 0;
+        width: 180px;
+        font-size: 14px;
+    }
+}

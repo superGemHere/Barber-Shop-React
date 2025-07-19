@@ -60,3 +60,74 @@
    background-color: white;
 }
 
+
+@media (max-width: 768px) {
+    .addPhoto {
+        height: 92vh;
+        padding: 20px;
+    }
+    
+    .alert2 {
+        top: -50px;
+        padding: 15px;
+        font-size: 14px;
+    }
+    
+    .parrentAddContainer {
+        width: 80%;
+        height: 70%;
+    }
+    
+    .parrentAddContainer h1 {
+        font-size: 24px;
+        margin: 8px;
+    }
+    
+    .addPhotoForm {
+        width: 80%;
+        height: 85%;
+        padding: 20px;
+    }
+    
+    .addPhoto-SubmitBtn {
+        width: 40%;
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .addPhoto {
+        height: 90vh;
+        padding: 10px;
+    }
+    
+    .alert2 {
+        top: -30px;
+        padding: 12px;
+        font-size: 12px;
+    }
+    
+    .parrentAddContainer {
+        width: 95%;
+        height: 80%;
+    }
+    
+    .parrentAddContainer h1 {
+        font-size: 20px;
+        margin: 6px;
+    }
+    
+    .addPhotoForm {
+        width: 90%;
+        height: 80%;
+        padding: 15px;
+    }
+    
+    .addPhoto-SubmitBtn {
+        width: 60%;
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+

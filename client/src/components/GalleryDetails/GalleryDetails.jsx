@@ -65,48 +65,58 @@ export default function GalleryDetails(){
     return(
         <>
         <main className="galleryDetails">
-                    <div className="photoSection">
-                        <div className='imagePlusOwnerButton'>
-                            <img className='detailsImage' src={photo.imageUrl} alt={`${photo.ownerName}'s photo`} />    
-                        </div>
-                        <div className="detailsText">
-                            <div className="detailsOwner">
-                                <p>Posted by: {photo.ownerName}</p>
-                                <p>On: {photo._createdOn}</p>
-                            </div>
-                            <div className='detailsCaps'>
-                                    <p>Caption: {photo.caption}</p>
-                            </div>
-                            {isOwner &&
-                                    <div className='detailsBtn'>
-                                                <button  className=' delBtn' onClick={deleteHandler}>Delete</button>
-                                                <Link to={`/gallery/edit/${photoId}`} className='btnClass'>Edit</Link>
-                                    </div>
-                                }
+            <div className="galleryDetailsContainer">
+                <div className="photoSection">
+                    <div className='imagePlusOwnerButton'>
+                        <img className='detailsImage' src={photo.imageUrl} alt={`${photo.ownerName}'s photo`} />    
                     </div>
-                    </div>
-                    <div className="commentSection">
-                        <div className="commentsDetails">
-                            {comments.length > 0 && comments.map(currentComment => {
-                              return(
-                                <div className="insideComment" key={currentComment._id}>
-                                    <p>{currentComment.username}</p><br /><p id='comment'>{currentComment.commentInput}</p>
-                                    <p>{currentComment._createdOn}</p>
-                                </div>
-                              )
-                            })}
-                            { comments.length == 0 && <h1 style={{color: 'white'}}>No comments yet</h1> }
-                            
+                    <div className="detailsText">
+                        <div className="detailsOwner">
+                            <p>Posted by: {photo.ownerName}</p>
+                            <p>On: {photo._createdOn}</p>
                         </div>
-                        {isError &&
-                        <p style={{color:'red', display: 'flex',alignItems:'center',justifyContent: 'center', fontSize: '17px', margin: '0'}}>Cannot submit empty comment.</p>
+                        <div className='detailsCaps'>
+                            <p>Caption: {photo.caption}</p>
+                        </div>
+                        {isOwner &&
+                            <div className='detailsBtn'>
+                                <button className='delBtn' onClick={deleteHandler}>Delete</button>
+                                <Link to={`/gallery/edit/${photoId}`} className='btnClass'>Edit</Link>
+                            </div>
                         }
-                        {!showComment && <form method='POST' style={{display: 'flex', alignItems: 'center', justifyContent: 'center', position:'relative', top:'20px'}} onSubmit={onSubmit}>
-                            <input type="text" name='commentInput' onChange={onChange} value={values.commentInput} style={{width: "85%", height: '30px', marginLeft: '10px', marginTop: '5px'}}/>
-                            <input type="submit" style={{width: "75px", height: '30px', marginLeft: '10px', marginTop: '5px'}}/>
-                        </form> }
-                        
                     </div>
+                </div>
+                <div className="commentSection">
+                    <div className="commentsDetails">
+                        {comments.length > 0 && comments.map(currentComment => {
+                          return(
+                            <div className="insideComment" key={currentComment._id}>
+                                <p>{currentComment.username}</p>
+                                <p id='comment'>{currentComment.commentInput}</p>
+                                <p>{currentComment._createdOn}</p>
+                            </div>
+                          )
+                        })}
+                        { comments.length == 0 && <h1>No comments yet</h1> }
+                    </div>
+                    {isError &&
+                        <div className="errorMessage">Cannot submit empty comment.</div>
+                    }
+                    {!showComment && 
+                        <form className='commentForm' method='POST' onSubmit={onSubmit}>
+                            <textarea 
+                                className="commentInput"
+                                name='commentInput' 
+                                onChange={onChange} 
+                                value={values.commentInput}
+                                placeholder="Share your thoughts about this photo..."
+                                rows="3"
+                            />
+                            <button type="submit" className="commentSubmit">Post Comment</button>
+                        </form> 
+                    }
+                </div>
+            </div>
         </main>
         </>
     );

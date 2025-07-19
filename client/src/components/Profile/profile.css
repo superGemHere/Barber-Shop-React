@@ -88,3 +88,87 @@ font-weight: bolder;
    background-color: black;
    scale: 1.03;
 }
+
+
+@media (max-width: 768px) {
+    .profile {
+        height: 92vh;
+        padding: 10px;
+    }
+    
+    .profileContainer {
+        width: 90%;
+        height: 95%;
+    }
+    
+    .profileParent {
+        width: 95%;
+        padding: 30px;
+    }
+    
+    .userInfo {
+        font-size: 18px;
+        text-align: center;
+    }
+    
+    .userPosts {
+        min-width: 95%;
+        max-width: 95%;
+        height: 200px;
+        flex-direction: column;
+        overflow-x: none;
+        overflow-y: auto;
+    }
+    
+    .userPostCard {
+        margin: 8px;
+    }
+    
+    .userPostCardImage {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .profile-firstUpload {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile {
+        height: 90vh;
+        padding: 5px;
+    }
+    
+    .profileContainer {
+        width: 95%;
+    }
+    
+    .profileParent {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .userInfo {
+        font-size: 16px;
+    }
+    
+    .userPosts {
+        height: 180px;
+    }
+    
+    .userPostCard {
+        margin: 5px;
+    }
+    
+    .userPostCardImage {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .profile-firstUpload {
+        padding: 6px;
+        font-size: 12px;
+    }
+}

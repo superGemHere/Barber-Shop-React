@@ -46,7 +46,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   max-width: 350px;
-  /* text-transform: uppercase; */
+  
   line-height: .77;
 }
 
@@ -56,7 +56,7 @@
   justify-content: space-around;
   flex-direction: column;
   width: 100%;
-  /* flex-wrap: wrap; */
+  
 }
 
 .contacts {
@@ -143,5 +143,133 @@
 .number{
   font-family: 'Agbalumo';
   font-size: 30px;
+}
+
+
+@media (max-width: 768px) {
+  .contact-us {
+    height: 92vh;
+    padding: 20px;
+  }
+  
+  .content {
+    width: 95%;
+    height: 90%;
+    padding: 10px;
+  }
+  
+  .containerContact {
+    width: 300px;
+    padding: 20px;
+    top: -40px;
+  }
+  
+  .msg {
+    font-size: 40px;
+    max-width: 280px;
+  }
+  
+  .parent {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .contacts {
+    width: 90%;
+    padding: 20px;
+  }
+  
+  .contactText {
+    font-size: 30px;
+    top: -20px;
+  }
+  
+  .secondaryInfo {
+    width: 90%;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .social-media,
+  .location {
+    width: 90%;
+    height: 250px;
+    border-radius: 15px;
+  }
+  
+  .social-media h2,
+  .location h2 {
+    top: -30px;
+  }
+  
+  .social-media-links {
+    width: 150px;
+    height: 70px;
+    font-size: 60px;
+    top: -20px;
+  }
+  
+  .google-maps {
+    width: 90%;
+    height: 70px;
+    font-size: 16px;
+    top: -50px;
+  }
+  
+  .number {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-us {
+    height: 90vh;
+    padding: 10px;
+  }
+  
+  .containerContact {
+    width: 250px;
+    padding: 15px;
+    top: -30px;
+  }
+  
+  .msg {
+    font-size: 30px;
+    max-width: 220px;
+  }
+  
+  .contacts {
+    width: 100%;
+    padding: 15px;
+  }
+  
+  .contactText {
+    font-size: 24px;
+    top: -15px;
+  }
+  
+  .social-media,
+  .location {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .social-media-links {
+    width: 120px;
+    height: 60px;
+    font-size: 50px;
+    top: -15px;
+  }
+  
+  .google-maps {
+    width: 95%;
+    height: 60px;
+    font-size: 14px;
+    top: -40px;
+  }
+  
+  .number {
+    font-size: 20px;
+  }
 }
 
