@@ -11,7 +11,7 @@ body {
   
 }
 
-/* Mobile First Responsive Design */
+
 @media (max-width: 768px) {
   html,
   body {
@@ -26,12 +26,12 @@ body {
   }
 }
 
-/* Ensure all containers are responsive */
+
 * {
   box-sizing: border-box;
 }
 
-/* Common responsive utility classes */
+
 .mobile-hidden {
   display: block;
 }
