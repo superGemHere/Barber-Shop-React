@@ -2,7 +2,7 @@
   width: 100%;
   min-height: calc(100vh - 80px);
   padding: 4rem 0;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   position: relative;
 }
 
@@ -38,7 +38,9 @@
   font-family: "Playfair Display", serif;
   font-size: 3.5rem;
   font-weight: 700;
-  color: var(--text-primary);
+  background: linear-gradient(135deg, #ffffff 0%, #8a8989 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 1rem;
   position: relative;
 }
@@ -57,7 +59,9 @@
 
 .services-subtitle {
   font-size: 1.125rem;
-  color: var(--text-secondary);
+  background: linear-gradient(135deg, #ffffff 0%, #8a8989 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
