@@ -1,212 +1,329 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
-
 .about-us {
-  width: 100%;
-  height: 93vh;
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(
-    225deg,
-    rgb(13, 13, 13),
-    rgb(228, 231, 233),
-    rgb(13, 13, 13)
-  );
-  justify-content: center;
-  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: white;
+  padding: 2rem 0;
+  position: relative;
 }
 
-.content {
-    width: 90%;
-    height: 80%;
-  display: flex;
-  align-items: center;
+.about-us::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(https://wallpapers.com/images/hd/barber-shop-background-c8pq8le29lkcb64m.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.05;
+  z-index: 1;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.about-header {
   text-align: center;
-  justify-content: center;
-  flex-direction: column;
-  background-color: rgb(255, 255, 255, .2);
+  margin-bottom: 4rem;
 }
 
-.container {
-  width: 400px;
-  height: 20px;
-  margin: 0;
-  padding: 30px;
-  background: #2e2c2c;
+.about-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.about-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.about-stats {
   display: flex;
   justify-content: center;
-  align-items: center;
-  position: relative;
-  top: -90px;
+  gap: 3rem;
+  margin: 3rem 0;
 }
 
-.msg {
-  font-family: 'Raleway', sans-serif;
-  font-size: 60px;
-  font-weight: bold;
-  background: linear-gradient(to right, rgb(252, 251, 251), rgb(131, 130, 130));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  max-width: 350px;
-  
-  line-height: .77;
-
+.stat-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease;
 }
 
-.parent {
+.stat-card:hover {
+  transform: translateY(-10px);
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffd700;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #ffd700;
+  letter-spacing: 1px;
+}
+
+.about-content {
+  display: grid;
+  gap: 4rem;
+}
+
+.section-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.section-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.highlight {
+  color: #ffd700;
+  font-weight: 600;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.value-item {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.value-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.value-icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 1rem;
+  color: #ffd700;
+}
+
+.value-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.value-description {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.team-member {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.member-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  flex-direction: column;
-  
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
 }
 
-.story {
-  height: 300px;
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    
-}
-.storyText{
-  position: relative;
-  top: -50px;
+.member-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
 }
 
-.secondaryInfo{
-    width: 70%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.member-role {
+  color: #ffd700;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
-.experience{
-    height: 200px;
-    width: 1000px;
-    display: flex;
-    align-items: center;
-    color: #fff;
-    justify-content: center;
-    flex-direction: column;
-    border-radius: 2px;
-    position: relative;
-    left: 40px;
-background-color: rgb(44, 40, 40, 0.5);
+.member-bio {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
-.experienceNumber{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 90px;
-    width: 120px;
-    font-size: 80px;
-    font-weight: bold;
-    position: relative;
-    top: -30px;
-    border-radius: 100px;
+.cta-section {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 3rem;
+  text-align: center;
 }
 
+.cta-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+}
 
+.cta-description {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  color: #333;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .about-us {
-    height: 92vh;
-    padding: 20px;
+    background-attachment: scroll;
   }
-  
-  .content {
-    width: 95%;
-    height: 90%;
-    padding: 10px;
+
+  .about-container {
+    padding: 0 1rem;
   }
-  
-  .container {
-    width: 300px;
-    padding: 20px;
-    top: -50px;
+
+  .about-title {
+    font-size: 2.5rem;
   }
-  
-  .msg {
-    font-size: 40px;
-    max-width: 280px;
+
+  .about-subtitle {
+    font-size: 1rem;
   }
-  
-  .parent {
+
+  .about-stats {
     flex-direction: column;
-    gap: 20px;
+    gap: 1rem;
+    align-items: center;
   }
-  
-  .story {
-    width: 90%;
-    height: 250px;
-    padding: 20px;
+
+  .stat-card {
+    width: 200px;
   }
-  
-  .storyText {
-    font-size: 16px;
-    top: -20px;
+
+  .section-card {
+    padding: 2rem;
   }
-  
-  .secondaryInfo {
-    width: 90%;
-    flex-direction: column;
-    gap: 20px;
+
+  .section-title {
+    font-size: 1.5rem;
   }
-  
-  .experience {
-    width: 90%;
-    height: 150px;
-    left: 0;
-    margin: 10px 0;
+
+  .values-grid,
+  .team-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .experienceNumber {
-    font-size: 60px;
-    height: 70px;
-    width: 100px;
-    top: -20px;
+
+  .cta-section {
+    padding: 2rem;
+  }
+
+  .cta-title {
+    font-size: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .about-us {
-    height: 90vh;
-    padding: 10px;
+  .about-title {
+    font-size: 2rem;
   }
-  
-  .container {
-    width: 250px;
-    padding: 15px;
-    top: -30px;
+
+  .section-card {
+    padding: 1.5rem;
   }
-  
-  .msg {
-    font-size: 30px;
-    max-width: 220px;
-  }
-  
-  .story {
-    width: 100%;
-    height: 200px;
-    padding: 15px;
-  }
-  
-  .storyText {
-    font-size: 14px;
-    top: -15px;
-  }
-  
-  .experience {
-    width: 100%;
-    height: 120px;
-  }
-  
-  .experienceNumber {
-    font-size: 40px;
-    height: 60px;
-    width: 80px;
-    top: -15px;
+
+  .cta-section {
+    padding: 1.5rem;
   }
 }
